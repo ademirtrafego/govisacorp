@@ -32,9 +32,8 @@ body {
 /* NAV */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 1000;
-  background: rgba(255,255,255,0.97);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(20px);
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .nav-in {
   max-width: 1280px; margin: 0 auto; padding: 0 56px;
@@ -44,15 +43,15 @@ nav {
 .nav-logo img { height: 36px; width: auto; }
 
 .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-.nav-links a { font-size: 13px; font-weight: 400; color: var(--gray); text-decoration: none; transition: color .2s; }
-.nav-links a:hover { color: var(--black); }
+.nav-links a { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--white); }
 
 .nav-btn {
   font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-  color: var(--white); background: var(--navy); padding: 11px 24px;
+  color: var(--navy); background: var(--white); padding: 11px 24px;
   text-decoration: none; transition: background .2s;
 }
-.nav-btn:hover { background: var(--black); }
+.nav-btn:hover { background: var(--off); }
 
 /* HERO */
 .hero {
@@ -130,7 +129,7 @@ nav {
 
 /* BRANDS */
 .brands {
-  background: var(--off); padding: 56px;
+  background: var(--white); padding: 56px;
   border-bottom: 1px solid var(--border);
 }
 .brands-in { max-width: 1280px; margin: 0 auto; }
@@ -144,19 +143,19 @@ nav {
 .brands-head p { font-size: 14px; color: var(--gray); max-width: 400px; line-height: 1.7; }
 .brands-row {
   display: flex; align-items: stretch;
-  border: 1px solid var(--border); background: var(--border); gap: 1px;
+  border: 1px solid var(--border); background: var(--navy); gap: 1px;
 }
 .brand-item {
-  background: var(--white); flex: 1;
+  background: var(--navy); flex: 1;
   display: flex; align-items: center; justify-content: center;
   padding: 40px 20px; transition: background .25s; min-width: 0;
 }
-.brand-item:hover { background: var(--off); }
+.brand-item:hover { background: #162d52; }
 .brand-item img {
   height: 38px; width: 100%; max-width: 140px; object-fit: contain;
-  filter: saturate(0) opacity(0.6); transition: filter .3s;
+  opacity: 0.7; transition: opacity .3s;
 }
-.brand-item:hover img { filter: saturate(1) opacity(1); }
+.brand-item:hover img { opacity: 1; }
 
 /* SECTIONS */
 .section { padding: 112px 56px; }
@@ -389,7 +388,6 @@ footer { background: var(--navy); padding: 56px; }
     </a>
     <ul class="nav-links">
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#ecossistema">Ecossistema</a></li>
       <li><a href="#historia">Nossa história</a></li>
     </ul>
     <a href="https://api.whatsapp.com/send/?phone=14075308780" target="_blank" class="nav-btn">Falar agora</a>
@@ -436,24 +434,11 @@ footer { background: var(--navy); padding: 56px; }
   </div>
 </section>
 
-<!-- TRUST -->
-<div class="trust">
-  <div class="trust-in">
-    <div class="ti"><span class="ti-dot"></span>Orlando, Florida</div>
-    <div class="ti"><span class="ti-dot"></span>Representação em 50 estados</div>
-    <div class="ti"><span class="ti-dot"></span>Atendimento em Português</div>
-    <div class="ti"><span class="ti-dot"></span>Sigilo absoluto garantido</div>
-    <div class="ti"><span class="ti-dot"></span>Emergência 24h</div>
-    <div class="ti"><span class="ti-dot"></span>contato@govisacorp.com</div>
-  </div>
-</div>
-
 <!-- BRANDS -->
 <section class="brands">
   <div class="brands-in">
     <div class="brands-head">
-      <h3>Grupo Go Visa</h3>
-      <p>Um ecossistema completo de empresas dedicadas à proteção e regularização de imigrantes em todo o território americano.</p>
+      <h3>Empresas do Grupo Go Visa</h3>
     </div>
     <div class="brands-row">
       <div class="brand-item rv">
@@ -506,34 +491,6 @@ footer { background: var(--navy); padding: 56px; }
   </div>
 </section>
 
-<!-- ECOSYSTEM -->
-<section class="section eco" id="ecossistema">
-  <div class="wrap">
-    <div class="eyebrow">Ecossistema</div>
-    <h2 class="h2">Um grupo, <span class="light">três frentes de defesa.</span></h2>
-    <div class="eco-grid">
-      <div class="eco-card rv">
-        <div class="eco-n">01</div>
-        <h3>Go Visa Law Firm</h3>
-        <p>Defesa técnica e representação em audiências de imigração em todo o país, liderada por Jeffrey Weingrad, Esq. Processos conduzidos com máxima precisão legal.</p>
-        <span class="eco-tag">Representação jurídica</span>
-      </div>
-      <div class="eco-card rv">
-        <div class="eco-n">02</div>
-        <h3>Go Visa Corp</h3>
-        <p>Inteligência jurídica para casos de alta complexidade, focada em proteção humanitária e análise de provas contra a exploração. Cada processo tratado com urgência.</p>
-        <span class="eco-tag">Proteção humanitária</span>
-      </div>
-      <div class="eco-card rv">
-        <div class="eco-n">03</div>
-        <h3>Go Visa Courses</h3>
-        <p>A maior autoridade na formação de paralegais do mercado americano. A empresa que mais treinou a elite técnica que sustenta as operações de imigração nos EUA.</p>
-        <span class="eco-tag">Formação paralegal</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- QUOTE -->
 <div class="quote">
   <div class="quote-in">
@@ -574,13 +531,6 @@ footer { background: var(--navy); padding: 56px; }
       <div class="story-aside rv">
         <div class="aside-box">
           <blockquote>"Se o sistema não protege quem é vulnerável, alguém precisa <span>dominar o sistema</span> por eles."</blockquote>
-          <div class="aside-items">
-            <div class="aside-item">Fundada por brasileiros em 2023</div>
-            <div class="aside-item">Representação em todos os 50 estados</div>
-            <div class="aside-item">Liderada por Jeffrey Weingrad, Esq.</div>
-            <div class="aside-item">Sigilo e sem julgamento garantidos</div>
-            <div class="aside-item">Atendimento 100% em Português</div>
-          </div>
         </div>
       </div>
     </div>
