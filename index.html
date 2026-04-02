@@ -76,7 +76,7 @@ nav.solid {
   to   { opacity: 1; transform: translateY(0); }
 }
 .hero-headline {
-  margin-top: 32px; position: relative; z-index: 1;
+  margin-top: 32px; padding-bottom: 16px; position: relative; z-index: 1;
   animation: entrar 1.2s cubic-bezier(0.22,1,0.36,1) 0.4s both;
   max-width: 800px;
 }
@@ -111,6 +111,7 @@ nav.solid {
 
 /* ── 2. HISTÓRIA DA GO VISA ── */
 .historia { background: var(--off); }
+.hist-text { max-width: 760px; }
 .hist-text h2 {
   font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--red);
   letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 28px;
@@ -338,8 +339,8 @@ footer { background: var(--off); padding: 64px 52px 40px; }
 }
 @media(max-width:640px) {
   .sec { padding: 72px 28px; }
-  .hero { padding: 56px 28px 0; }
-  .hero-logo img { height: 140px; }
+  .hero { padding: 56px 28px 64px; }
+  .hero-logo img { height: 200px; }
   .nav-in { padding: 0 24px; }
   .vistos-grid { grid-template-columns: 1fr; }
   .marcas-label { padding: 24px 28px 0; }
@@ -369,25 +370,12 @@ footer { background: var(--off); padding: 64px 52px 40px; }
 <!-- ══ 2. HISTÓRIA DA GO VISA ══ -->
 <section class="sec historia" id="historia">
   <div class="wrap">
-    <div class="two-col">
-      <div class="hist-text">
+    <div class="hist-text">
         <h2>Nossa história</h2>
         <p>A Go Visa consolidou-se em outubro de 2023 como uma resposta analítica à dor do imigrante, transformando as dificuldades do sistema americano em um estudo técnico rigoroso.</p>
         <p>Mais que um escritório, a corporação nasceu para honrar a luta de quem busca uma vida melhor, convertendo o processo imigratório na entrega do sonho de gerações.</p>
-        <p>Com presença estratégica nos Estados Unidos e polos brasileiros como <strong>RJ e BA</strong>, a marca une autoridade e nobreza institucional para garantir que o futuro do imigrante seja tratado com o máximo rigor e seriedade em escala global.</p>
+        <p>Com presença estratégica nos Estados Unidos, com matriz na <strong>FL</strong>, e polos em <strong>MA, TX e NY</strong> e polos brasileiros em <strong>RJ e BA</strong>, a marca une autoridade e nobreza institucional para garantir que o futuro do imigrante seja tratado com o máximo rigor e seriedade em escala global.</p>
       </div>
-      <div class="hist-aside">
-        <!-- Substituir pelo src da foto do Rodrigo -->
-        <div class="hist-placeholder">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          Foto do Rodrigo
-        </div>
-        <div class="hist-quote">
-          <p>"Convertendo o processo imigratório na entrega do <span>sonho de gerações.</span>"</p>
-          <small>Go Visa Corp — Fundada em outubro de 2023</small>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -398,7 +386,7 @@ footer { background: var(--off); padding: 64px 52px 40px; }
       <h2 class="lf-title">Go Visa <span>Law Firm</span></h2>
       <p>Defesa técnica e representação em audiências de imigração em todo o território americano, liderada por <strong>Jeffrey Weingrad, Esq.</strong> — profissional licenciado com atuação em todos os 50 estados.</p>
       <p>Cada processo conduzido com máxima precisão jurídica, do primeiro contato até a aprovação final. Nossa estrutura legal garante que nenhum detalhe seja negligenciado.</p>
-      <a href="https://govisalaw.com" target="_blank" class="lf-btn">Conhecer a Law Firm →</a>
+      <a href="vistos.html" target="_blank" class="lf-btn">Conhecer a Law Firm →</a>
     </div>
   </div>
 </section>
