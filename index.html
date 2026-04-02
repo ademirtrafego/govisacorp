@@ -48,10 +48,10 @@ nav.solid {
 
 /* ── 1. HERO — GO VISA CORP ── */
 .hero {
-  min-height: 100vh; background: var(--dark);
+  min-height: auto; background: var(--dark);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  padding: 60px 52px 0;
+  padding: 80px 52px 80px;
   position: relative; overflow: hidden; text-align: center;
 }
 .hero-glow {
@@ -66,9 +66,9 @@ nav.solid {
   to   { opacity: 1;   transform: translateX(-50%) scaleX(1.2); }
 }
 .hero-content { position: relative; z-index: 1; max-width: 900px; }
-.hero-logo { margin-bottom: 0; animation: entrar 1.2s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+.hero-logo { margin-bottom: 36px; animation: entrar 1.2s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
 .hero-logo img {
-  height: 240px; width: auto;
+  height: 420px; width: auto;
   filter: drop-shadow(0 0 48px rgba(255,255,255,0.3)) drop-shadow(0 0 96px rgba(184,12,12,0.25));
 }
 @keyframes entrar {
@@ -76,7 +76,7 @@ nav.solid {
   to   { opacity: 1; transform: translateY(0); }
 }
 .hero-headline {
-  margin-top: 64px; position: relative; z-index: 1;
+  margin-top: 32px; position: relative; z-index: 1;
   animation: entrar 1.2s cubic-bezier(0.22,1,0.36,1) 0.4s both;
   max-width: 800px;
 }
