@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go Visa Law Firm — Vistos e Proteção Jurídica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red:   #B80C0C;
+  --navy:  #0D1F3C;
+  --dark:  #07132A;
+  --white: #FFFFFF;
+  --off:   #F2F0EC;
+  --border:#E0DDD8;
+  --gray:  #6B7280;
+  --black: #111111;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HEADER */
+header {
+  background: var(--white);
+  border-bottom: 3px solid var(--red);
+  padding: 40px 52px 48px;
+  position: relative;
+}
+.header-in {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 32px;
+}
+.header-logo img { height: 52px; width: auto; }
+.header-text { max-width: 600px; }
+.header-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.header-tag::before { content: ''; width: 16px; height: 1px; background: var(--red); }
+.header-text h1 {
+  font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; color: var(--navy);
+  letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 12px;
+}
+.header-text p {
+  font-size: 15px; color: var(--gray); font-weight: 300; line-height: 1.7;
+}
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gray); text-decoration: none; margin-bottom: 28px;
+  transition: color .2s;
+}
+.back-btn:hover { color: var(--navy); }
+
+/* INTRO STRIP */
+.intro-strip {
+  background: var(--off); padding: 32px 52px;
+  border-bottom: 1px solid var(--border);
+}
+.intro-in {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+}
+.intro-in p {
+  font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.7; max-width: 640px;
+}
+.wa-cta {
+  display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;
+  background: var(--red); color: var(--white);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 13px 24px; text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.wa-cta:hover { background: #D91010; transform: translateY(-1px); }
+
+/* VISTOS GRID */
+.vistos-section { padding: 80px 52px; }
+.vistos-wrap { max-width: 1280px; margin: 0 auto; }
+.vistos-list { display: flex; flex-direction: column; gap: 2px; }
+
+.visto-item {
+  background: var(--white); border: 1px solid var(--border);
+  border-left: 4px solid transparent;
+  display: grid; grid-template-columns: 280px 1fr;
+  transition: border-color .25s, background .25s;
+  overflow: hidden;
+}
+.visto-item:hover { border-left-color: var(--red); }
+
+.visto-left {
+  background: var(--dark); padding: 48px 40px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.visto-left::after {
+  content: ''; position: absolute; bottom: -40px; right: -40px;
+  width: 140px; height: 140px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,12,12,0.1), transparent 70%);
+}
+.visto-num {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); margin-bottom: 16px;
+}
+.visto-name {
+  font-size: clamp(22px, 2.5vw, 32px); font-weight: 800; color: var(--white);
+  letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px;
+}
+.visto-sub {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--red);
+}
+.visto-badge {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 24px;
+  background: rgba(184,12,12,0.15); border: 1px solid rgba(184,12,12,0.3);
+  padding: 5px 12px; border-radius: 2px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+.visto-right {
+  background: var(--white); padding: 48px 52px;
+  display: flex; flex-direction: column; justify-content: center; gap: 24px;
+}
+.visto-item:hover .visto-right { background: var(--off); }
+.visto-right p {
+  font-size: 15px; color: #374151; line-height: 1.85; font-weight: 300;
+}
+.visto-right p strong { color: var(--navy); font-weight: 600; }
+.visto-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--navy); border: 1px solid var(--border); padding: 4px 10px;
+}
+.visto-action {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--red); text-decoration: none; border-bottom: 1px solid transparent;
+  transition: border-color .2s;
+}
+.visto-action:hover { border-color: var(--red); }
+
+/* CTA FINAL */
+.cta-final {
+  background: var(--dark); padding: 80px 52px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-final::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(184,12,12,0.1), transparent 65%);
+}
+.cta-final h2 {
+  font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; color: var(--white);
+  letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 16px;
+  position: relative; z-index: 1;
+}
+.cta-final h2 span { color: var(--red); }
+.cta-final p {
+  font-size: 15px; color: rgba(255,255,255,0.45); font-weight: 300;
+  line-height: 1.75; max-width: 520px; margin: 0 auto 36px;
+  position: relative; z-index: 1;
+}
+.btn-wa-big {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: #052e14;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 17px 40px; text-decoration: none;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+  transition: background .2s, transform .2s;
+  position: relative; z-index: 1;
+}
+.btn-wa-big:hover { background: #22c55e; transform: translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: var(--off); padding: 28px 52px;
+  border-top: 1px solid var(--border); text-align: center;
+}
+footer p { font-size: 11px; color: #9CA3AF; }
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .visto-item { grid-template-columns: 1fr; }
+  .visto-left { padding: 36px 28px; }
+  .visto-right { padding: 36px 28px; }
+  header { padding: 32px 28px 44px; }
+  .intro-strip { padding: 24px 28px; }
+  .vistos-section { padding: 56px 28px; }
+  .cta-final { padding: 64px 28px; }
+  footer { padding: 24px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-in">
+    <div>
+      <a href="javascript:window.close()" class="back-btn">← Voltar ao site</a>
+      <div style="margin-top: 28px;">
+        <div class="header-tag">Go Visa Law Firm</div>
+        <h1>Vistos que trabalhamos<br>e lutamos.</h1>
+        <p>Proteção jurídica real para cada situação. Conheça os mecanismos que utilizamos para garantir seu futuro nos Estados Unidos.</p>
+      </div>
+    </div>
+    <div class="header-logo" style="background:var(--navy);padding:16px 28px;">
+      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/q_auto/f_auto/v1775129985/Prancheta_2_c%C3%B3pia_4_1_te9fux.png" alt="Go Visa Law Firm">
+    </div>
+  </div>
+</header>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div class="intro-in">
+    <p>Cada caso é único. Nossa equipe analisa sua situação de forma individualizada e identifica o melhor caminho jurídico disponível para você permanecer legalmente nos Estados Unidos.</p>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber qual visto se aplica ao meu caso." target="_blank" class="wa-cta">
+      Falar com nossa equipe
+    </a>
+  </div>
+</div>
+
+<!-- VISTOS -->
+<section class="vistos-section">
+  <div class="vistos-wrap">
+    <div class="vistos-list">
+
+      <!-- VISTO T -->
+      <div class="visto-item">
+        <div class="visto-left">
+          <div>
+            <div class="visto-num">01</div>
+            <div class="visto-name">Visto T</div>
+            <div class="visto-sub">Exploração e Tráfico</div>
+          </div>
+          <div class="visto-badge">Proteção humanitária</div>
+        </div>
+        <div class="visto-right">
+          <p>O Visto T é para pessoas que foram <strong>exploradas ou forçadas a trabalhar</strong>, muitas vezes com ameaças ou engano. Isso inclui situações de trabalho abusivo ou quando alguém entrou pelo cai-cai ou coiote e passou por situações de risco à vida durante a travessia.</p>
+          <p>Esse visto permite ficar legalmente no país, trabalhar e, em alguns casos, <strong>pedir o green card</strong>. É uma forma de proteção para quem passou por esse tipo de situação e quer recomeçar com segurança.</p>
+          <div class="visto-tags">
+            <span class="tag">Trabalho forçado</span>
+            <span class="tag">Travessia de risco</span>
+            <span class="tag">Autorização de trabalho</span>
+            <span class="tag">Caminho ao green card</span>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre o Visto T." target="_blank" class="visto-action">Quero saber se me enquadro →</a>
+        </div>
+      </div>
+
+      <!-- VISTO U -->
+      <div class="visto-item">
+        <div class="visto-left">
+          <div>
+            <div class="visto-num">02</div>
+            <div class="visto-name">Visto U</div>
+            <div class="visto-sub">Vítimas de Crimes</div>
+          </div>
+          <div class="visto-badge">Proteção a vítimas</div>
+        </div>
+        <div class="visto-right">
+          <p>O Visto U é para <strong>vítimas de crimes nos EUA</strong> que sofreram algum tipo de abuso, como violência doméstica, agressão ou outros crimes. É importante ter ajudado ou estar disposto a ajudar a polícia no caso.</p>
+          <p>Esse visto permite <strong>trabalhar legalmente</strong> e pode levar ao green card no futuro. É uma oportunidade para quem passou por uma situação difícil e quer regularizar sua vida.</p>
+          <div class="visto-tags">
+            <span class="tag">Violência doméstica</span>
+            <span class="tag">Crimes qualificados</span>
+            <span class="tag">Colaboração policial</span>
+            <span class="tag">Caminho ao green card</span>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre o Visto U." target="_blank" class="visto-action">Quero saber se me enquadro →</a>
+        </div>
+      </div>
+
+      <!-- VAWA -->
+      <div class="visto-item">
+        <div class="visto-left">
+          <div>
+            <div class="visto-num">03</div>
+            <div class="visto-name">VAWA</div>
+            <div class="visto-sub">Proteção Familiar</div>
+          </div>
+          <div class="visto-badge">Processo confidencial</div>
+        </div>
+        <div class="visto-right">
+          <p>O VAWA é para pessoas que sofreram abuso de um <strong>cônjuge ou familiar que seja cidadão americano ou residente</strong>. Esse abuso pode ser físico ou emocional.</p>
+          <p>A grande vantagem é que você pode fazer o processo <strong>sozinho, sem depender da pessoa que te prejudicou</strong>. O processo é confidencial e pode levar ao green card, ajudando você a conquistar independência e segurança.</p>
+          <div class="visto-tags">
+            <span class="tag">Abuso físico e emocional</span>
+            <span class="tag">Independência do agressor</span>
+            <span class="tag">Confidencial</span>
+            <span class="tag">Green card</span>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre o VAWA." target="_blank" class="visto-action">Quero saber se me enquadro →</a>
+        </div>
+      </div>
+
+      <!-- ASILO -->
+      <div class="visto-item">
+        <div class="visto-left">
+          <div>
+            <div class="visto-num">04</div>
+            <div class="visto-name">Asilo</div>
+            <div class="visto-sub">Proteção Internacional</div>
+          </div>
+          <div class="visto-badge">Proteção permanente</div>
+        </div>
+        <div class="visto-right">
+          <p>O asilo é para quem <strong>não pode voltar ao seu país por medo de perseguição ou risco de vida</strong>. Isso pode acontecer por motivos como religião, opinião política ou por fazer parte de um grupo específico.</p>
+          <p>Quem consegue o asilo pode <strong>morar legalmente nos EUA, trabalhar e, depois, pedir o green card</strong>. É uma proteção para quem precisa de um recomeço seguro.</p>
+          <div class="visto-tags">
+            <span class="tag">Perseguição política</span>
+            <span class="tag">Risco de vida</span>
+            <span class="tag">Religião e grupo social</span>
+            <span class="tag">Green card</span>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre o Asilo." target="_blank" class="visto-action">Quero saber se me enquadro →</a>
+        </div>
+      </div>
+
+      <!-- VISTOS HUMANITÁRIOS -->
+      <div class="visto-item">
+        <div class="visto-left">
+          <div>
+            <div class="visto-num">05</div>
+            <div class="visto-name">Vistos Humanitários</div>
+            <div class="visto-sub">Situações de risco</div>
+          </div>
+          <div class="visto-badge">Análise individual</div>
+        </div>
+        <div class="visto-right">
+          <p>Os vistos humanitários são para pessoas que estão passando por <strong>situações difíceis ou de risco e precisam de proteção nos EUA</strong>. Cada caso é analisado de forma individual.</p>
+          <p>Dependendo da situação, a pessoa pode conseguir ficar no país legalmente, trabalhar e até buscar a residência no futuro. <strong>É uma alternativa para quem não se encaixa em outros tipos de visto.</strong></p>
+          <div class="visto-tags">
+            <span class="tag">Situações de risco</span>
+            <span class="tag">Análise individual</span>
+            <span class="tag">Permanência legal</span>
+            <span class="tag">Autorização de trabalho</span>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre vistos humanitários." target="_blank" class="visto-action">Quero saber se me enquadro →</a>
+        </div>
+      </div>
+
+      <!-- VISTOS POR FAMÍLIA -->
+      <div class="visto-item">
+        <div class="visto-left">
+          <div>
+            <div class="visto-num">06</div>
+            <div class="visto-name">Vistos por Família</div>
+            <div class="visto-sub">Reunificação familiar</div>
+          </div>
+          <div class="visto-badge">Green card</div>
+        </div>
+        <div class="visto-right">
+          <p>Os vistos por família permitem que <strong>cidadãos americanos ou residentes ajudem familiares a se legalizarem nos EUA</strong>. Isso inclui cônjuges, filhos, pais e, em alguns casos, irmãos.</p>
+          <p>É um dos caminhos mais comuns para conseguir o green card, mas o processo pode variar e <strong>exige atenção para ser feito corretamente.</strong></p>
+          <div class="visto-tags">
+            <span class="tag">Cônjuges e filhos</span>
+            <span class="tag">Pais e irmãos</span>
+            <span class="tag">Reunificação</span>
+            <span class="tag">Green card</span>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre vistos por família." target="_blank" class="visto-action">Quero saber se me enquadro →</a>
+        </div>
+      </div>
+
+      <!-- DEFESA EM COURT -->
+      <div class="visto-item">
+        <div class="visto-left">
+          <div>
+            <div class="visto-num">07</div>
+            <div class="visto-name">Defesa em Audiência</div>
+            <div class="visto-sub">Intervenção estratégica</div>
+          </div>
+          <div class="visto-badge">Urgente</div>
+        </div>
+        <div class="visto-right">
+          <p>A defesa em audiência é para quem está <strong>enfrentando um processo na imigração ou risco de deportação</strong>. Mesmo nessas situações, ainda existem formas de tentar permanecer nos EUA.</p>
+          <p>Com a estratégia certa, é possível <strong>apresentar uma defesa e buscar uma solução legal</strong> para continuar no país. Não enfrente essa situação sozinho.</p>
+          <div class="visto-tags">
+            <span class="tag">Risco de deportação</span>
+            <span class="tag">Cancelamento de remoção</span>
+            <span class="tag">Defesa técnica</span>
+            <span class="tag">Audiência de imigração</span>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, estou com risco de deportação e preciso de ajuda urgente." target="_blank" class="visto-action">Preciso de ajuda urgente →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>Não sabe qual visto<br>se aplica ao seu caso?</h2>
+  <p>Nossa equipe analisa sua situação sem julgamento e indica o melhor caminho jurídico disponível para você.</p>
+  <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber qual visto se aplica ao meu caso." target="_blank" class="btn-wa-big">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar com nossa equipe agora
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Go Visa Law Firm · Go Visa Corp. Todos os direitos reservados. · Este conteúdo é informativo e não constitui aconselhamento jurídico individual.</p>
+</footer>
+
+</body>
+</html>
