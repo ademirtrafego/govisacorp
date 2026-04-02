@@ -10,15 +10,15 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --red:   #B80C0C;
-  --red2:  #D91010;
-  --navy:  #0D1F3C;
-  --dark:  #07132A;
-  --white: #FFFFFF;
-  --off:   #F2F0EC;
-  --border:#E0DDD8;
-  --gray:  #6B7280;
-  --black: #111111;
+  --red:    #B80C0C;
+  --red2:   #D91010;
+  --navy:   #0D1F3C;
+  --dark:   #07132A;
+  --white:  #FFFFFF;
+  --off:    #F2F0EC;
+  --border: #E0DDD8;
+  --gray:   #6B7280;
+  --black:  #111111;
 }
 
 html { scroll-behavior: smooth; }
@@ -30,7 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 1000;
   background: transparent;
@@ -43,18 +43,10 @@ nav.solid {
 }
 .nav-in {
   max-width: 1280px; margin: 0 auto; padding: 0 52px;
-  display: flex; align-items: center; justify-content: flex-end;
-  height: 68px; gap: 8px;
+  height: 68px; display: flex; align-items: center; justify-content: center;
 }
-.nav-links { display: flex; list-style: none; gap: 2px; }
-.nav-links a {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.65); text-decoration: none; padding: 8px 14px;
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--white); }
 
-/* HERO */
+/* ── 1. HERO — GO VISA CORP ── */
 .hero {
   min-height: 100vh; background: var(--dark);
   display: flex; flex-direction: column;
@@ -62,24 +54,10 @@ nav.solid {
   padding: 60px 52px 0;
   position: relative; overflow: hidden; text-align: center;
 }
-
-/* Globe background */
-.globe-bg {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  pointer-events: none; z-index: 0;
-}
-#globe-canvas {
-  width: min(820px, 90vw);
-  height: min(820px, 90vw);
-  opacity: 0.55;
-}
-
-/* Red glow bottom */
 .hero-glow {
   position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%);
   width: 700px; height: 300px;
-  background: radial-gradient(ellipse, rgba(184,12,12,0.2), transparent 65%);
+  background: radial-gradient(ellipse, rgba(184,12,12,0.18), transparent 65%);
   pointer-events: none; z-index: 0;
   animation: glowPulse 5s ease-in-out infinite alternate;
 }
@@ -87,85 +65,66 @@ nav.solid {
   from { opacity: 0.5; transform: translateX(-50%) scaleX(1); }
   to   { opacity: 1;   transform: translateX(-50%) scaleX(1.2); }
 }
-
-.hero-content { position: relative; z-index: 1; max-width: 800px; }
-
-.hero-logo {
-  margin-bottom: 48px;
-  animation: entrar 1s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+.hero-logo { margin-bottom: 0; animation: entrar 1.2s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+.hero-logo img {
+  height: 240px; width: auto;
+  filter: drop-shadow(0 0 48px rgba(255,255,255,0.3)) drop-shadow(0 0 96px rgba(184,12,12,0.25));
 }
-.hero-logo img { height: 160px; width: auto; }
-
 @keyframes entrar {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-.hero-cta {
-  animation: entrar 1s cubic-bezier(0.22,1,0.36,1) 0.3s both;
-}
-.hero-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--red); color: var(--white);
-  font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 18px 44px; text-decoration: none;
-  box-shadow: 0 8px 32px rgba(184,12,12,0.4);
-  transition: background .2s, transform .2s, box-shadow .2s;
-}
-.hero-btn:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(184,12,12,0.5); }
-
 .hero-img {
-  width: 100%; max-width: 900px; margin-top: 72px;
+  width: 100%; max-width: 960px; margin-top: 72px;
   position: relative; z-index: 1;
-  animation: entrar 1s cubic-bezier(0.22,1,0.36,1) 0.5s both;
+  animation: entrar 1.2s cubic-bezier(0.22,1,0.36,1) 0.4s both;
 }
 .hero-img img { width: 100%; height: 300px; object-fit: cover; display: block; }
 .hero-placeholder {
   width: 100%; height: 300px;
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
   display: flex; align-items: center; justify-content: center;
-  font-size: 12px; color: rgba(255,255,255,0.2);
-  letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 0.14em; text-transform: uppercase;
 }
 
-/* SECTIONS */
+/* ── SECTIONS BASE ── */
 .sec { padding: 100px 52px; }
 .wrap { max-width: 1280px; margin: 0 auto; }
-
-/* HISTORIA */
-.historia { background: var(--off); }
-.historia-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+.sec-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
 }
+.sec-label::before { content: ''; width: 18px; height: 1px; background: var(--red); }
+.sec-title {
+  font-size: clamp(28px, 3.5vw, 46px); font-weight: 700; color: var(--navy);
+  letter-spacing: -0.025em; line-height: 1.1;
+}
+.sec-title span { color: var(--red); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+/* ── 2. HISTÓRIA DA GO VISA ── */
+.historia { background: var(--off); }
 .hist-text h2 {
-  font-size: clamp(30px, 3.5vw, 46px); font-weight: 700; color: var(--red);
-  letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 32px;
+  font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--red);
+  letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 28px;
 }
 .hist-text p {
-  font-size: 15px; color: #374151; line-height: 1.9; font-weight: 300; margin-bottom: 18px;
+  font-size: 15px; color: #374151; line-height: 1.9; font-weight: 300; margin-bottom: 16px;
 }
 .hist-text p strong { color: var(--navy); font-weight: 700; }
-.hist-text p:first-of-type {
-  font-size: 17px; font-weight: 500; color: var(--navy); line-height: 1.7; letter-spacing: -0.01em;
-}
-
 .hist-aside { display: flex; flex-direction: column; gap: 2px; }
-.hist-photo {
-  width: 100%; height: 420px; object-fit: cover; object-position: top; display: block;
-}
+.hist-photo { width: 100%; height: 420px; object-fit: cover; object-position: top; display: block; }
 .hist-placeholder {
-  width: 100%; height: 420px;
-  background: #d1ccc4;
+  width: 100%; height: 420px; background: #d1ccc4;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; font-size: 12px; color: rgba(0,0,0,0.3);
-  letter-spacing: 0.1em; text-transform: uppercase;
+  gap: 12px; font-size: 12px; color: rgba(0,0,0,0.3); letter-spacing: 0.1em; text-transform: uppercase;
 }
-.hist-quote {
-  background: var(--navy); padding: 32px 36px;
-}
+.hist-quote { background: var(--navy); padding: 32px 36px; }
 .hist-quote p {
-  font-size: 16px; font-weight: 500; color: var(--white); line-height: 1.65;
-  letter-spacing: -0.01em; margin-bottom: 14px;
+  font-size: 16px; font-weight: 500; color: var(--white);
+  line-height: 1.65; letter-spacing: -0.01em; margin-bottom: 14px;
 }
 .hist-quote p span { color: rgba(255,255,255,0.35); font-weight: 300; }
 .hist-quote small {
@@ -173,100 +132,166 @@ nav.solid {
   letter-spacing: 0.16em; text-transform: uppercase;
 }
 
-/* JEFFREY */
-.jeffrey { background: var(--white); }
-.jeffrey-grid {
-  display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: center;
+/* ── 3. GO VISA LAW FIRM ── */
+.lawfirm { background: var(--dark); }
+.lf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.lf-left { max-width: 680px; }
+.lf-left .sec-label { color: rgba(255,255,255,0.35); }
+.lf-left .sec-label::before { background: var(--red); }
+.lf-title {
+  font-size: clamp(28px, 3.5vw, 46px); font-weight: 700; color: var(--white);
+  letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 24px;
 }
-.jeff-photo { width: 100%; height: 440px; object-fit: cover; object-position: top; display: block; }
+.lf-title span { color: var(--red); }
+.lf-left p {
+  font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.85;
+  font-weight: 300; margin-bottom: 14px;
+}
+.lf-left p strong { color: var(--white); font-weight: 600; }
+.lf-btn {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;
+  background: var(--red); color: var(--white);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 14px 28px; text-decoration: none; transition: background .2s, transform .15s;
+}
+.lf-btn:hover { background: var(--red2); transform: translateY(-1px); }
+.lf-right {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--red); padding: 52px;
+  position: relative; overflow: hidden;
+}
+.lf-right::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,12,12,0.1), transparent 70%);
+}
+.lf-logo { margin-bottom: 32px; }
+.lf-logo img { height: 48px; width: auto; }
+.lf-feats { display: flex; flex-direction: column; }
+.lf-feat {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300;
+  transition: color .2s;
+}
+.lf-feat:last-child { border-bottom: none; }
+.lf-feat:hover { color: rgba(255,255,255,0.9); }
+.lf-dot { width: 4px; height: 4px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+.lf-feat strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+/* ── 4. JEFFREY ── */
+.jeffrey { background: var(--white); }
+.jeff-grid { display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: center; }
+.jeff-photo { width: 100%; height: 460px; object-fit: cover; object-position: top; display: block; }
 .jeff-placeholder {
-  width: 100%; height: 440px; background: #d1ccc4;
+  width: 100%; height: 460px; background: #d1ccc4;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; font-size: 12px; color: rgba(0,0,0,0.3);
-  letter-spacing: 0.1em; text-transform: uppercase;
+  gap: 12px; font-size: 12px; color: rgba(0,0,0,0.3); letter-spacing: 0.1em; text-transform: uppercase;
 }
 .jeff-right h2 {
-  font-size: clamp(26px, 3vw, 40px); font-weight: 700; color: var(--navy);
-  letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px;
+  font-size: clamp(24px, 3vw, 38px); font-weight: 700; color: var(--navy);
+  letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px;
 }
 .jeff-right p {
-  font-size: 15px; color: var(--gray); line-height: 1.85; font-weight: 300; margin-bottom: 28px;
+  font-size: 15px; color: var(--gray); line-height: 1.85; font-weight: 300; margin-bottom: 24px;
 }
 .jeff-badge {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: center; gap: 8px;
   background: var(--navy); color: var(--white);
-  font-size: 11px; font-weight: 500; padding: 10px 18px; margin-bottom: 32px;
-  letter-spacing: 0.04em;
+  font-size: 11px; font-weight: 500; padding: 10px 18px; margin-bottom: 28px;
+  letter-spacing: 0.03em; line-height: 1.5;
 }
 .jeff-badge strong { font-weight: 700; }
-.jeff-lawfirm img { height: 44px; width: auto; display: block; }
+.jeff-lawfirm img { height: 40px; width: auto; display: block; }
 
-/* STATS */
-.stats { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 52px; }
-.stats-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 72px; flex-wrap: wrap; }
-.stats-num .big {
-  font-size: clamp(64px, 8vw, 108px); font-weight: 800; color: var(--red);
-  letter-spacing: -0.04em; line-height: 0.9;
+/* ── 5. VISTOS ── */
+.vistos { background: var(--off); }
+.vistos-intro { max-width: 640px; margin-bottom: 56px; }
+.vistos-intro p { font-size: 15px; color: var(--gray); line-height: 1.8; font-weight: 300; margin-top: 16px; }
+.vistos-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
 }
-.stats-num .label {
-  font-size: 13px; font-weight: 700; color: var(--navy);
-  letter-spacing: 0.1em; text-transform: uppercase; margin-top: 10px;
+.visto-card {
+  background: var(--white); padding: 48px;
+  position: relative; transition: background .25s; overflow: hidden;
 }
-.stats-sep { width: 1px; height: 80px; background: var(--border); flex-shrink: 0; }
-.stats-desc { flex: 1; min-width: 260px; }
-.stats-desc p { font-size: 16px; color: var(--gray); line-height: 1.75; font-weight: 300; max-width: 420px; }
-.stats-icons { display: flex; gap: 12px; margin-top: 28px; }
-.stat-icon {
-  width: 44px; height: 44px;
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gray); transition: border-color .2s, color .2s;
+.visto-card:hover { background: var(--dark); }
+.visto-card:hover .visto-n { color: rgba(255,255,255,0.06); }
+.visto-card:hover h3 { color: var(--white); }
+.visto-card:hover .visto-tag { color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.1); }
+.visto-card:hover p { color: rgba(255,255,255,0.5); }
+.visto-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--red); transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.22,1,0.36,1); transform-origin: left;
 }
-.stat-icon:hover { border-color: var(--red); color: var(--red); }
+.visto-card:hover::before { transform: scaleX(1); }
+.visto-n {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 16px; transition: color .25s;
+}
+.visto-card h3 {
+  font-size: 20px; font-weight: 700; color: var(--navy);
+  letter-spacing: -0.01em; margin-bottom: 6px; transition: color .25s;
+}
+.visto-tag {
+  font-size: 11px; font-weight: 600; color: var(--red); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 14px; display: block;
+  border: 1px solid rgba(184,12,12,0.2); padding: 3px 10px; display: inline-block;
+  transition: all .25s;
+}
+.visto-card p { font-size: 14px; color: var(--gray); line-height: 1.8; font-weight: 300; transition: color .25s; }
 
-/* BRANDS */
-.brands { background: var(--red); padding: 0; }
-.brands-row {
-  max-width: 100%; display: flex; align-items: stretch;
-  background: rgba(255,255,255,0.12); gap: 1px;
+/* ── 6. MARCAS ── */
+.marcas { background: var(--red); }
+.marcas-label {
+  text-align: center; padding: 32px 52px 0;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
 }
-.brand-slot {
+.marcas-row {
+  display: flex; align-items: stretch; gap: 1px;
+  background: rgba(255,255,255,0.15);
+}
+.marca-slot {
   flex: 1; display: flex; align-items: center; justify-content: center;
-  padding: 44px 28px; background: var(--red);
-  transition: background .25s;
+  padding: 48px 24px; background: var(--red);
+  transition: background .25s; position: relative; overflow: hidden;
 }
-.brand-slot:hover { background: var(--red2); }
-.brand-slot img {
-  height: 52px; width: auto; max-width: 170px; object-fit: contain;
+.marca-slot::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--white);
+  transform: scaleX(0); transition: transform .3s cubic-bezier(0.22,1,0.36,1);
+  transform-origin: left;
+}
+.marca-slot:hover { background: var(--red2); }
+.marca-slot:hover::after { transform: scaleX(1); }
+.marca-slot img {
+  height: 54px; width: auto; max-width: 170px; object-fit: contain;
   filter: brightness(0) invert(1);
-  opacity: 0.85; transition: opacity .25s, transform .25s;
+  opacity: 0.82; transition: opacity .25s, transform .25s;
 }
-.brand-slot:hover img { opacity: 1; transform: translateY(-2px); }
+.marca-slot:hover img { opacity: 1; transform: translateY(-3px); }
 
-/* FOOTER */
+/* ── FOOTER ── */
 footer { background: var(--off); padding: 64px 52px 40px; }
 .footer-inner { max-width: 1280px; margin: 0 auto; text-align: center; }
-.footer-socials {
-  display: flex; align-items: center; justify-content: center;
-  gap: 14px; margin-bottom: 36px;
-}
+.footer-socials { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 32px; }
 .soc {
-  width: 46px; height: 46px; border: 1px solid var(--border); border-radius: 50%;
+  width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: var(--gray); text-decoration: none;
-  transition: border-color .2s, color .2s, background .2s;
+  transition: border-color .2s, color .2s;
 }
-.soc:hover { border-color: var(--red); color: var(--red); background: rgba(184,12,12,0.04); }
-.footer-info { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
-.footer-info-row {
+.soc:hover { border-color: var(--red); color: var(--red); }
+.footer-info { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.footer-row {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  font-size: 14px; color: var(--gray); font-weight: 400;
+  font-size: 14px; color: var(--gray);
 }
-.footer-info-row svg { color: var(--red); flex-shrink: 0; }
-.footer-copy {
-  padding-top: 28px; border-top: 1px solid var(--border);
-  font-size: 11px; color: #9CA3AF;
-}
+.footer-row svg { color: var(--red); flex-shrink: 0; }
+.footer-copy { padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: #9CA3AF; }
 
 /* WA FLOAT */
 .wa-float {
@@ -280,50 +305,33 @@ footer { background: var(--off); padding: 64px 52px 40px; }
 
 /* RESPONSIVE */
 @media(max-width:1024px) {
-  .historia-grid, .jeffrey-grid { grid-template-columns: 1fr; gap: 48px; }
-  .jeffrey-grid { grid-template-columns: 1fr; }
-  .jeff-placeholder, .jeff-photo { max-width: 320px; height: 380px; }
-  .stats-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
-  .stats-sep { width: 60px; height: 1px; }
-  .brands-row { flex-wrap: wrap; }
-  .brand-slot { min-width: 48%; }
+  .two-col, .lf-grid, .three-col, .jeff-grid { grid-template-columns: 1fr; gap: 48px; }
+  .jeff-photo, .jeff-placeholder { max-width: 320px; height: 380px; }
+  .marcas-row { flex-wrap: wrap; }
+  .marca-slot { min-width: 48%; }
 }
 @media(max-width:640px) {
   .sec { padding: 72px 28px; }
-  .stats { padding: 64px 28px; }
-  .brands { padding: 0; }
-  footer { padding: 48px 28px 32px; }
   .hero { padding: 56px 28px 0; }
-  .hero-logo img { height: 110px; }
+  .hero-logo img { height: 140px; }
   .nav-in { padding: 0 24px; }
-  .nav-links { display: none; }
+  .vistos-grid { grid-template-columns: 1fr; }
+  .marcas-label { padding: 24px 28px 0; }
+  footer { padding: 48px 28px 32px; }
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav">
-  <div class="nav-in">
-  </div>
-</nav>
+<nav id="nav"><div class="nav-in"></div></nav>
 
-<!-- HERO -->
+<!-- ══ 1. GO VISA CORP ══ -->
 <section class="hero">
-  <div class="globe-bg">
-    <canvas id="globe-canvas"></canvas>
-  </div>
   <div class="hero-glow"></div>
-
   <div class="hero-content">
     <div class="hero-logo">
       <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/q_auto/f_auto/v1775129986/Prancheta_2_c%C3%B3pia_6_n8j7mk.png" alt="Go Visa Corp">
-    </div>
-    <div class="hero-cta">
-      <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de falar com a equipe Go Visa Corp." target="_blank" class="hero-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Fale com nossos assistentes jurídicos
-      </a>
     </div>
     <div class="hero-img">
       <!-- Substituir pela foto do escritório -->
@@ -332,10 +340,10 @@ footer { background: var(--off); padding: 64px 52px 40px; }
   </div>
 </section>
 
-<!-- NOSSA HISTÓRIA -->
+<!-- ══ 2. HISTÓRIA DA GO VISA ══ -->
 <section class="sec historia" id="historia">
   <div class="wrap">
-    <div class="historia-grid">
+    <div class="two-col">
       <div class="hist-text">
         <h2>Nossa história</h2>
         <p>A Go Visa consolidou-se em outubro de 2023 como uma resposta analítica à dor do imigrante, transformando as dificuldades do sistema americano em um estudo técnico rigoroso.</p>
@@ -357,10 +365,22 @@ footer { background: var(--off); padding: 64px 52px 40px; }
   </div>
 </section>
 
-<!-- JEFFREY WEINGRAD -->
-<section class="sec jeffrey" id="especialidades">
+<!-- ══ 3. GO VISA LAW FIRM ══ -->
+<section class="sec lawfirm" id="lawfirm">
   <div class="wrap">
-    <div class="jeffrey-grid">
+    <div class="lf-left">
+      <h2 class="lf-title">Go Visa <span>Law Firm</span></h2>
+      <p>Defesa técnica e representação em audiências de imigração em todo o território americano, liderada por <strong>Jeffrey Weingrad, Esq.</strong> — profissional licenciado com atuação em todos os 50 estados.</p>
+      <p>Cada processo conduzido com máxima precisão jurídica, do primeiro contato até a aprovação final. Nossa estrutura legal garante que nenhum detalhe seja negligenciado.</p>
+      <a href="https://govisalaw.com" target="_blank" class="lf-btn">Conhecer a Law Firm →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. JEFFREY WEINGRAD ══ -->
+<section class="sec jeffrey" id="jeffrey">
+  <div class="wrap">
+    <div class="jeff-grid">
       <div>
         <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775156883/Jeffrey_Weingrad.JPG_vhwzoy.jpg" alt="Jeffrey Weingrad" class="jeff-photo">
       </div>
@@ -378,45 +398,56 @@ footer { background: var(--off); padding: 64px 52px 40px; }
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats">
-  <div class="stats-inner">
-    <div class="stats-num">
-      <div class="big" id="counter">+ 2.000</div>
-      <div class="label">Vidas Salvas</div>
+<!-- ══ 5. VISTOS QUE TRABALHAMOS E LUTAMOS ══ -->
+<section class="sec vistos" id="vistos">
+  <div class="wrap">
+    <div class="vistos-intro">
+      <h2 class="sec-title">Vistos que trabalhamos<br><span>e lutamos.</span></h2>
+      <p>Atuamos nos principais mecanismos de proteção humanitária do sistema americano, com defesa técnica real para cada caso.</p>
     </div>
-    <div class="stats-sep"></div>
-    <div class="stats-desc">
-      <p>Um histórico analítico de sucesso construído sobre a fundação da segurança jurídica e da excelência técnica inegociável.</p>
-      <div class="stats-icons">
-        <div class="stat-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9v12h6v-7h6v7h6V9L12 3z"/></svg>
-        </div>
-        <div class="stat-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
-        </div>
-        <div class="stat-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 2C12 2 8 7 8 12s4 10 4 10M12 2c0 0 4 5 4 10s-4 10-4 10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-        </div>
+    <div class="vistos-grid">
+      <div class="visto-card">
+        <div class="visto-n">01 — Visto T</div>
+        <h3>Exploração Laboral</h3>
+        <span class="visto-tag">Vítimas de tráfico humano</span>
+        <p>Para quem foi enganado com falsas promessas de trabalho, vive sob coerção ou condições abusivas. A lei reconhece a sua vulnerabilidade e oferece proteção jurídica real.</p>
+      </div>
+      <div class="visto-card">
+        <div class="visto-n">02 — Visto U</div>
+        <h3>Vítimas de Crimes</h3>
+        <span class="visto-tag">Colaboração com autoridades</span>
+        <p>Proteção para quem sofreu crimes qualificados em solo americano e colaborou com as autoridades. Seu testemunho tem valor jurídico e pode garantir sua permanência.</p>
+      </div>
+      <div class="visto-card">
+        <div class="visto-n">03 — VAWA</div>
+        <h3>Proteção Familiar</h3>
+        <span class="visto-tag">Independência do agressor</span>
+        <p>Visto destinado a vítimas de abusos cometidos por cônjuges, pais ou filhos cidadãos ou residentes. Você não precisa do seu agressor para regularizar sua situação.</p>
+      </div>
+      <div class="visto-card">
+        <div class="visto-n">04 — Defesa em Audiência</div>
+        <h3>Intervenção Estratégica</h3>
+        <span class="visto-tag">Cancelamento de deportação</span>
+        <p>Intervenção estratégica para cancelamento de deportação e pedidos de liberdade condicional. Quando o sistema pressiona, nós respondemos com a lei na mão.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BRANDS -->
-<div class="brands">
-  <div class="brands-row">
-    <div class="brand-slot">
-      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/q_auto/f_auto/v1775129985/Prancheta_2_c%C3%B3pia_4_1_te9fux.png" alt="Go Visa Law Firm">
-    </div>
-    <div class="brand-slot">
+<!-- ══ 6. MARCAS DO GRUPO ══ -->
+<div class="marcas" id="grupo">
+  <div class="marcas-row">
+    <div class="marca-slot">
       <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129987/Prancheta_2_c%C3%B3pia_5_1_tpkaiy.png" alt="Go Visa Foundation">
     </div>
-    <div class="brand-slot">
-      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129984/Prancheta_1_c%C3%B3pia_8_zcjhio.png" alt="Go Visa Brasil">
+    <div class="marca-slot">
+      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129984/Prancheta_1_c%C3%B3pia_8_zcjhio.png" alt="Go Visa RJ">
     </div>
-    <div class="brand-slot">
-      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129983/Prancheta_2_c%C3%B3pia_5_kwjguc.png" alt="Go Visa Courses">
+    <div class="marca-slot">
+      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129983/Prancheta_2_c%C3%B3pia_5_kwjguc.png" alt="Go Visa Brasil">
+    </div>
+    <div class="marca-slot">
+      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/q_auto/f_auto/v1775129985/Prancheta_2_c%C3%B3pia_4_1_te9fux.png" alt="Go Visa Courses">
     </div>
   </div>
 </div>
@@ -425,30 +456,30 @@ footer { background: var(--off); padding: 64px 52px 40px; }
 <footer id="contato">
   <div class="footer-inner">
     <div class="footer-socials">
-      <a href="https://api.whatsapp.com/send/?phone=14075308780" target="_blank" class="soc" title="WhatsApp">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a href="https://api.whatsapp.com/send/?phone=14075308780" target="_blank" class="soc">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </a>
-      <a href="https://instagram.com/govisacorp" target="_blank" class="soc" title="Instagram">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      <a href="https://instagram.com/govisacorp" target="_blank" class="soc">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="https://youtube.com/@govisacorp" target="_blank" class="soc" title="YouTube">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="currentColor" stroke="none"/></svg>
+      <a href="https://youtube.com/@govisacorp" target="_blank" class="soc">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="https://linkedin.com/company/govisacorp" target="_blank" class="soc" title="LinkedIn">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      <a href="https://linkedin.com/company/govisacorp" target="_blank" class="soc">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       </a>
     </div>
     <div class="footer-info">
-      <div class="footer-info-row">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.09 1.18 2 2 0 012.09 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+      <div class="footer-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.09 1.18 2 2 0 012.09 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
         +1 (407) 530 - 8780
       </div>
-      <div class="footer-info-row">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <div class="footer-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         govisacorp@contato.com
       </div>
-      <div class="footer-info-row">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="footer-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         429 S Keller Rd, Orlando, Flórida
       </div>
     </div>
@@ -464,212 +495,9 @@ footer { background: var(--off); padding: 64px 52px 40px; }
 </a>
 
 <script>
-// ── REALISTIC 3D GLOBE ──────────────────────────────────────
-(function() {
-  const canvas = document.getElementById('globe-canvas');
-  const size = Math.min(820, window.innerWidth * 0.9);
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext('2d');
-  const cx = size / 2, cy = size / 2, R = size * 0.44;
-
-  // Continent data — simplified lat/lon polygons
-  const continents = [
-    // North America
-    [[49,-125],[49,-95],[60,-85],[72,-75],[72,-95],[60,-140],[54,-130],[49,-125]],
-    [[49,-95],[24,-110],[18,-87],[15,-83],[9,-80],[10,-75],[24,-80],[32,-80],[35,-75],[42,-70],[45,-66],[47,-53],[50,-55],[58,-65],[60,-68],[55,-75],[52,-80],[52,-88],[55,-90],[60,-85],[49,-95]],
-    [[18,-87],[15,-83],[9,-80],[8,-77],[7,-77],[8,-75],[10,-75],[15,-83],[18,-87]],
-    [[10,-75],[8,-62],[5,-52],[3,-51],[3,-60],[5,-61],[8,-62],[10,-75]],
-    // South America
-    [[12,-72],[10,-62],[8,-60],[5,-52],[3,-51],[-5,-35],[-10,-37],[-15,-39],[-23,-43],[-30,-51],[-34,-53],[-38,-57],[-42,-63],[-52,-68],[-55,-66],[-52,-75],[-45,-75],[-35,-72],[-22,-70],[-18,-70],[-15,-75],[-5,-80],[0,-78],[5,-77],[10,-72],[12,-72]],
-    // Europe
-    [[71,28],[70,20],[62,5],[58,-5],[50,-5],[44,-8],[36,-8],[36,6],[38,15],[42,20],[44,28],[48,38],[55,38],[60,28],[62,22],[58,20],[55,14],[57,8],[58,5],[62,5],[70,20],[71,28]],
-    [[60,20],[57,22],[55,14],[57,8],[60,5],[62,8],[60,20]],
-    // Africa
-    [[37,10],[32,10],[22,37],[12,44],[11,43],[0,42],[-10,40],[-26,32],[-34,26],[-34,18],[-22,14],[-18,12],[-5,14],[0,8],[4,6],[6,2],[4,-2],[0,-9],[5,-9],[10,-14],[16,-17],[20,-17],[28,-13],[32,-9],[36,3],[37,10]],
-    // Asia
-    [[72,140],[70,180],[60,175],[52,142],[45,135],[38,122],[22,114],[18,108],[10,105],[1,104],[1,110],[5,116],[15,120],[22,115],[30,120],[38,118],[40,128],[46,130],[52,140],[56,161],[60,163],[65,172],[70,180],[72,140]],
-    [[72,80],[70,60],[55,38],[48,38],[44,28],[38,35],[36,36],[38,42],[40,48],[42,50],[42,60],[46,60],[48,70],[55,73],[60,68],[62,54],[58,48],[60,42],[65,38],[68,52],[72,80]],
-    [[72,80],[72,140],[60,130],[52,130],[46,84],[48,70],[55,73],[60,68],[65,38],[68,52],[72,80]],
-    // India
-    [[22,68],[8,78],[8,80],[15,80],[22,88],[28,88],[32,75],[22,68]],
-    // Australia
-    [[-16,136],[-12,130],[-16,124],[-26,114],[-32,116],[-38,140],[-38,148],[-28,154],[-22,150],[-16,136]],
-    [[-40,148],[-46,168],[-46,170],[-38,175],[-34,173],[-40,174],[-44,168],[-40,148]],
-    // Japan
-    [[42,144],[38,140],[34,131],[34,130],[36,136],[38,140],[42,144]],
-    // UK & Ireland
-    [[58,-5],[55,-6],[52,-10],[50,-5],[52,-3],[54,-3],[56,-3],[58,-5]],
-    [[55,-6],[54,-8],[52,-10],[52,-6],[55,-6]],
-    // Greenland
-    [[83,-20],[82,-60],[76,-72],[70,-50],[64,-52],[66,-36],[70,-22],[78,-18],[83,-20]],
-  ];
-
-  // Dot cloud for stars
-  const stars = Array.from({length: 300}, () => ({
-    x: Math.random() * size,
-    y: Math.random() * size,
-    r: Math.random() * 1.2,
-    a: Math.random() * 0.5 + 0.1
-  }));
-
-  let rotation = 0;
-
-  function toRad(deg) { return deg * Math.PI / 180; }
-
-  function project(lat, lon, rot) {
-    const phi = toRad(lat);
-    const lam = toRad(lon) + rot;
-    const x3 = Math.cos(phi) * Math.sin(lam);
-    const y3 = Math.sin(phi);
-    const z3 = Math.cos(phi) * Math.cos(lam);
-    return { x: cx + R * x3, y: cy - R * y3, z: z3, visible: z3 > -0.15 };
-  }
-
-  function drawGlobe(rot) {
-    ctx.clearRect(0, 0, size, size);
-
-    // Stars
-    stars.forEach(s => {
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${s.a})`;
-      ctx.fill();
-    });
-
-    // Globe shadow (depth illusion)
-    const grad = ctx.createRadialGradient(cx - R * 0.2, cy - R * 0.2, R * 0.1, cx, cy, R);
-    grad.addColorStop(0, 'rgba(13,31,60,0)');
-    grad.addColorStop(0.6, 'rgba(7,19,42,0)');
-    grad.addColorStop(1, 'rgba(0,0,0,0.55)');
-
-    // Ocean base
-    ctx.beginPath();
-    ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    const ocean = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.05, cx + R * 0.1, cy + R * 0.1, R * 1.1);
-    ocean.addColorStop(0, 'rgba(30,80,160,0.55)');
-    ocean.addColorStop(0.5, 'rgba(10,40,100,0.45)');
-    ocean.addColorStop(1, 'rgba(4,20,60,0.5)');
-    ctx.fillStyle = ocean;
-    ctx.fill();
-
-    // Grid lines
-    ctx.lineWidth = 0.4;
-
-    // Latitude lines
-    for (let lat = -80; lat <= 80; lat += 20) {
-      ctx.beginPath(); let first = true;
-      for (let lon = -180; lon <= 180; lon += 3) {
-        const p = project(lat, lon, rot);
-        if (!p.visible) { first = true; continue; }
-        const alpha = Math.max(0, p.z) * 0.35 + 0.05;
-        ctx.strokeStyle = `rgba(100,160,255,${alpha})`;
-        if (first) { ctx.moveTo(p.x, p.y); first = false; }
-        else ctx.lineTo(p.x, p.y);
-      }
-      ctx.stroke();
-    }
-
-    // Longitude lines
-    for (let lon = -180; lon < 180; lon += 20) {
-      ctx.beginPath(); let first = true;
-      for (let lat = -90; lat <= 90; lat += 3) {
-        const p = project(lat, lon, rot);
-        if (!p.visible) { first = true; continue; }
-        const alpha = Math.max(0, p.z) * 0.35 + 0.05;
-        ctx.strokeStyle = `rgba(100,160,255,${alpha})`;
-        if (first) { ctx.moveTo(p.x, p.y); first = false; }
-        else ctx.lineTo(p.x, p.y);
-      }
-      ctx.stroke();
-    }
-
-    // Continents
-    continents.forEach(poly => {
-      const pts = poly.map(([lat, lon]) => project(lat, lon, rot));
-      const visible = pts.filter(p => p.visible);
-      if (visible.length < 2) return;
-
-      ctx.beginPath();
-      let started = false;
-      pts.forEach(p => {
-        if (!p.visible) { started = false; return; }
-        if (!started) { ctx.moveTo(p.x, p.y); started = true; }
-        else ctx.lineTo(p.x, p.y);
-      });
-      ctx.closePath();
-
-      // Fill with depth shading
-      const avgZ = pts.reduce((s, p) => s + p.z, 0) / pts.length;
-      const brightness = Math.max(0.1, avgZ);
-      ctx.fillStyle = `rgba(${Math.round(40 + brightness * 60)},${Math.round(120 + brightness * 60)},${Math.round(80 + brightness * 40)},${0.5 + brightness * 0.4})`;
-      ctx.fill();
-
-      ctx.strokeStyle = `rgba(80,200,120,${0.3 + brightness * 0.4})`;
-      ctx.lineWidth = 0.8;
-      ctx.stroke();
-    });
-
-    // Specular highlight
-    const spec = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.35, 0, cx - R * 0.1, cy - R * 0.1, R * 0.7);
-    spec.addColorStop(0, 'rgba(255,255,255,0.12)');
-    spec.addColorStop(0.4, 'rgba(255,255,255,0.04)');
-    spec.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.beginPath();
-    ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    ctx.fillStyle = spec;
-    ctx.fill();
-
-    // Edge shadow
-    ctx.beginPath();
-    ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    ctx.fillStyle = grad;
-    ctx.fill();
-
-    // Outer glow
-    ctx.beginPath();
-    ctx.arc(cx, cy, R + 2, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(60,120,255,0.12)';
-    ctx.lineWidth = 6;
-    ctx.stroke();
-  }
-
-  function animate() {
-    rotation += 0.004;
-    drawGlobe(rotation);
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-
-  // Resize
-  window.addEventListener('resize', () => {
-    const s = Math.min(820, window.innerWidth * 0.9);
-    canvas.width = s; canvas.height = s;
-  });
-})();
-
-// ── NAV ──────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('solid', window.scrollY > 40);
 });
-
-// ── COUNTER ──────────────────────────────────────────────────
-const counter = document.getElementById('counter');
-let counted = false;
-new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting && !counted) {
-    counted = true;
-    const target = 2000, dur = 1800, start = performance.now();
-    const run = (now) => {
-      const p = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      counter.textContent = '+ ' + Math.round(ease * target).toLocaleString('pt-BR');
-      if (p < 1) requestAnimationFrame(run);
-    };
-    requestAnimationFrame(run);
-  }
-}, { threshold: 0.5 }).observe(counter);
 </script>
 </body>
 </html>
