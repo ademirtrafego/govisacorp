@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go Visa Corp — Immigration Law</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black:  #0A0A0A;
+  --navy:   #0D1F3C;
+  --red:    #B91C1C;
+  --white:  #FFFFFF;
+  --off:    #F8F8F6;
+  --border: #E4E4E0;
+  --gray:   #6B7280;
+  --light:  #F2F2EF;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+}
+.nav-in {
+  max-width: 1280px; margin: 0 auto; padding: 0 56px;
+  display: flex; align-items: center; justify-content: space-between; height: 72px;
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 36px; width: auto; }
+
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 400; color: var(--gray); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--black); }
+
+.nav-btn {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--white); background: var(--navy); padding: 11px 24px;
+  text-decoration: none; transition: background .2s;
+}
+.nav-btn:hover { background: var(--black); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+}
+.hero-left {
+  background: var(--navy); padding: 96px 72px 80px 56px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.hero-left::after {
+  content: ''; position: absolute; bottom: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(185,28,28,0.12), transparent 70%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(36px, 4vw, 60px); font-weight: 700; line-height: 1.1;
+  letter-spacing: -0.025em; color: var(--white); margin-bottom: 32px;
+}
+.hero h1 .dim { color: rgba(255,255,255,0.45); font-weight: 300; }
+.hero-desc {
+  font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.85;
+  font-weight: 300; max-width: 480px;
+}
+.hero-btns { display: flex; gap: 2px; margin-top: 52px; }
+.btn-w {
+  background: var(--white); color: var(--navy);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 15px 28px; text-decoration: none; flex: 1; text-align: center;
+  transition: background .2s;
+}
+.btn-w:hover { background: var(--off); }
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.65);
+  font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 15px 24px; text-decoration: none; transition: all .2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+
+/* Hero right */
+.hero-right {
+  background: var(--off); display: flex; flex-direction: column; justify-content: flex-end;
+}
+.hero-quote {
+  padding: 48px 52px; border-bottom: 1px solid var(--border);
+}
+.hero-quote p {
+  font-size: 19px; font-weight: 500; color: var(--navy);
+  line-height: 1.5; letter-spacing: -0.01em;
+}
+.hero-quote p span { color: var(--red); }
+.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+.stat-box { background: var(--white); padding: 36px 32px; }
+.stat-n {
+  font-size: 44px; font-weight: 700; color: var(--navy);
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+}
+.stat-l { font-size: 12px; color: var(--gray); font-weight: 400; line-height: 1.5; }
+
+/* TRUST STRIP */
+.trust {
+  border-bottom: 1px solid var(--border); padding: 16px 56px; background: var(--white);
+}
+.trust-in {
+  max-width: 1280px; margin: 0 auto; display: flex; align-items: center; flex-wrap: wrap;
+}
+.ti {
+  font-size: 12px; color: var(--gray); font-weight: 400;
+  padding: 4px 24px; display: flex; align-items: center; gap: 7px; white-space: nowrap;
+}
+.ti + .ti { border-left: 1px solid var(--border); }
+.ti-dot { width: 4px; height: 4px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+/* BRANDS */
+.brands {
+  background: var(--off); padding: 56px;
+  border-bottom: 1px solid var(--border);
+}
+.brands-in { max-width: 1280px; margin: 0 auto; }
+.brands-head {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; margin-bottom: 40px;
+}
+.brands-head h3 {
+  font-size: 18px; font-weight: 600; color: var(--navy); letter-spacing: -0.01em;
+}
+.brands-head p { font-size: 14px; color: var(--gray); max-width: 400px; line-height: 1.7; }
+.brands-row {
+  display: flex; align-items: stretch;
+  border: 1px solid var(--border); background: var(--border); gap: 1px;
+}
+.brand-item {
+  background: var(--white); flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 20px; transition: background .25s; min-width: 0;
+}
+.brand-item:hover { background: var(--off); }
+.brand-item img {
+  height: 38px; width: 100%; max-width: 140px; object-fit: contain;
+  filter: saturate(0) opacity(0.6); transition: filter .3s;
+}
+.brand-item:hover img { filter: saturate(1) opacity(1); }
+
+/* SECTIONS */
+.section { padding: 112px 56px; }
+.wrap { max-width: 1280px; margin: 0 auto; }
+
+.eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--red); }
+
+.h2 {
+  font-size: clamp(28px, 3.5vw, 46px); font-weight: 700; color: var(--navy);
+  line-height: 1.1; letter-spacing: -0.025em;
+}
+.h2 .light { font-weight: 300; color: var(--gray); }
+
+/* SERVICES */
+.svc-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+  margin-top: 56px;
+}
+.svc-card {
+  background: var(--white); padding: 48px;
+  position: relative; transition: background .2s;
+}
+.svc-card:hover { background: var(--off); }
+.svc-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: transparent; transition: background .2s;
+}
+.svc-card:hover::before { background: var(--red); }
+.svc-n { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 18px; }
+.svc-card h3 { font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 6px; letter-spacing: -0.01em; }
+.svc-tag { font-size: 11px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; display: block; }
+.svc-card p { font-size: 14px; color: var(--gray); line-height: 1.8; font-weight: 300; }
+
+/* ECOSYSTEM */
+.eco { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.eco-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 56px;
+}
+.eco-card {
+  background: var(--white); padding: 48px 40px; transition: background .25s;
+}
+.eco-card:hover { background: var(--navy); }
+.eco-card:hover .eco-n { color: rgba(255,255,255,0.05); }
+.eco-card:hover h3 { color: var(--white); }
+.eco-card:hover p { color: rgba(255,255,255,0.45); }
+.eco-card:hover .eco-tag { color: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.1); }
+.eco-n { font-size: 56px; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 14px; letter-spacing: -0.04em; transition: color .25s; }
+.eco-card h3 { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.01em; transition: color .25s; }
+.eco-card p { font-size: 14px; color: var(--gray); line-height: 1.8; font-weight: 300; transition: color .25s; }
+.eco-tag {
+  display: inline-block; margin-top: 20px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gray); border: 1px solid var(--border); padding: 5px 12px; transition: all .25s;
+}
+
+/* QUOTE */
+.quote { background: var(--navy); padding: 96px 56px; }
+.quote-in {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center;
+}
+.quote-text {
+  font-size: clamp(22px, 2.8vw, 38px); font-weight: 600; color: var(--white);
+  line-height: 1.3; letter-spacing: -0.02em;
+}
+.quote-text span { color: rgba(255,255,255,0.35); font-weight: 300; }
+.quote-stats { display: flex; flex-direction: column; gap: 1px; }
+.qs { background: rgba(255,255,255,0.04); padding: 28px 32px; }
+.qs-n { font-size: 40px; font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
+.qs-l { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px; font-weight: 500; }
+
+/* STORY */
+.story-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 96px; align-items: start; }
+.story-text p { font-size: 15px; color: #374151; line-height: 1.9; font-weight: 300; margin-bottom: 18px; }
+.story-text p strong { color: var(--black); font-weight: 600; }
+.story-text p:first-child { font-size: 18px; font-weight: 500; color: var(--navy); line-height: 1.6; letter-spacing: -0.01em; }
+.story-aside { position: sticky; top: 100px; }
+.aside-box { background: var(--navy); padding: 48px; }
+.aside-box blockquote {
+  font-size: 18px; font-weight: 500; color: var(--white);
+  line-height: 1.6; margin-bottom: 32px; letter-spacing: -0.01em;
+}
+.aside-box blockquote span { color: rgba(255,255,255,0.4); font-weight: 300; }
+.aside-items { border-top: 1px solid rgba(255,255,255,0.08); }
+.aside-item {
+  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 400;
+  display: flex; align-items: center; gap: 10px;
+}
+.aside-item::before { content: ''; width: 3px; height: 3px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+/* COURSES */
+.courses { background: var(--off); }
+.courses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-top: 56px; }
+.courses-card { background: var(--white); padding: 48px; border: 1px solid var(--border); }
+.courses-card h4 { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 24px; letter-spacing: -0.01em; }
+.cf { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.cf:last-of-type { border-bottom: none; }
+.cf-n { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); min-width: 22px; margin-top: 2px; }
+.cf span { font-size: 14px; color: var(--gray); line-height: 1.6; }
+.btn-navy {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 32px;
+  background: var(--navy); color: var(--white);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 15px 28px; text-decoration: none; transition: background .2s;
+}
+.btn-navy:hover { background: var(--black); }
+.courses-right { padding-top: 4px; }
+.courses-right p { font-size: 17px; font-weight: 500; color: var(--navy); line-height: 1.6; letter-spacing: -0.01em; margin-bottom: 24px; }
+.courses-right p.sub { font-size: 14px; font-weight: 300; color: var(--gray); line-height: 1.8; margin-bottom: 28px; }
+.feat-list { border: 1px solid var(--border); }
+.feat-row {
+  padding: 16px 20px; font-size: 13px; color: var(--gray);
+  display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border);
+}
+.feat-row:last-child { border-bottom: none; }
+.feat-row:nth-child(even) { background: var(--off); }
+.feat-row::before { content: ''; width: 4px; height: 4px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+/* CTA */
+.cta-wrap { padding: 0 56px 112px; }
+.cta-box {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 300px;
+  background: var(--off); border: 1px solid var(--border);
+}
+.cta-l { padding: 68px; border-right: 1px solid var(--border); }
+.cta-l h2 {
+  font-size: clamp(24px, 3vw, 40px); font-weight: 700; color: var(--navy);
+  line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.cta-l h2 span { color: var(--red); }
+.cta-l p { font-size: 14px; color: var(--gray); line-height: 1.8; font-weight: 300; }
+.cta-r { padding: 48px 36px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.btn-wa {
+  background: #16A34A; color: var(--white);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 15px 16px; text-decoration: none;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: background .2s;
+}
+.btn-wa:hover { background: #15803D; }
+.btn-emerg {
+  background: var(--red); color: var(--white);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 13px 16px; text-decoration: none;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  transition: background .2s;
+}
+.btn-emerg:hover { background: #991B1B; }
+.e-dot { width: 5px; height: 5px; background: var(--white); border-radius: 50%; animation: blink 1.2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.cta-note { font-size: 11px; color: var(--gray); text-align: center; }
+
+/* FOOTER */
+footer { background: var(--navy); padding: 56px; }
+.footer-in { max-width: 1280px; margin: 0 auto; }
+.footer-top {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+  padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px;
+}
+.footer-top img { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; }
+.footer-top p { font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 300; max-width: 400px; line-height: 1.7; }
+.footer-bot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bot p { font-size: 11px; color: rgba(255,255,255,0.2); }
+
+/* WA FLOAT */
+.wa-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 9999;
+  width: 52px; height: 52px; background: #16A34A; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(22,163,74,0.35); text-decoration: none; transition: transform .2s;
+}
+.wa-float:hover { transform: scale(1.08); }
+
+/* REVEAL */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity .65s, transform .65s; }
+.rv.on { opacity: 1; transform: translateY(0); }
+.rv:nth-child(2){transition-delay:.08s} .rv:nth-child(3){transition-delay:.16s}
+.rv:nth-child(4){transition-delay:.24s} .rv:nth-child(5){transition-delay:.32s}
+.rv:nth-child(6){transition-delay:.40s} .rv:nth-child(7){transition-delay:.48s}
+.rv:nth-child(8){transition-delay:.56s}
+
+/* RESPONSIVE */
+@media(max-width:1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .eco-grid { grid-template-columns: 1fr 1fr; }
+  .story-grid { grid-template-columns: 1fr; }
+  .story-aside { position: static; }
+  .quote-in { grid-template-columns: 1fr; gap: 48px; }
+  .courses-grid { grid-template-columns: 1fr; }
+  .brands-row { flex-wrap: wrap; }
+  .brand-item { min-width: 140px; }
+  .cta-box { grid-template-columns: 1fr; }
+  .cta-r { padding: 40px 68px; }
+}
+@media(max-width:768px) {
+  .section { padding: 80px 28px; }
+  .quote { padding: 72px 28px; }
+  .courses { padding: 80px 28px; }
+  .hero-left { padding: 72px 28px 64px; }
+  .nav-links { display: none; }
+  .nav-in { padding: 0 28px; }
+  .trust { padding: 14px 28px; }
+  .brands { padding: 48px 28px; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .eco-grid { grid-template-columns: 1fr; }
+  .cta-wrap { padding: 0 28px 80px; }
+  .cta-l { padding: 48px 32px; }
+  .cta-r { padding: 36px 32px; }
+  footer { padding: 48px 28px 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a href="/" class="nav-logo">
+      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/q_auto/f_auto/v1775129986/Prancheta_2_c%C3%B3pia_6_n8j7mk.png" alt="Go Visa Corp">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#ecossistema">Ecossistema</a></li>
+      <li><a href="#historia">Nossa história</a></li>
+    </ul>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780" target="_blank" class="nav-btn">Falar agora</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div>
+      <h1>
+        Imigração não é sorte.<br>
+        <span class="dim">É estrutura jurídica.</span>
+      </h1>
+      <p class="hero-desc">Você não errou em vir para os Estados Unidos. Mas o sistema não perdoa quem não tem estrutura jurídica por trás. Somos especialistas em proteger quem foi explorado, abusado ou está em risco de deportação — com representação licenciada em todo o território americano.</p>
+    </div>
+    <div class="hero-btns">
+      <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de iniciar minha triagem de viabilidade." target="_blank" class="btn-w">Iniciar Triagem de Viabilidade</a>
+      <a href="#servicos" class="btn-ghost">Ver serviços</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-quote">
+      <p>"Cada caso que fechamos é uma família que <span>dorme sem medo.</span>"</p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-n">3.200+</div>
+        <div class="stat-l">Famílias regularizadas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n">93%</div>
+        <div class="stat-l">Taxa de aprovação</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n">10+</div>
+        <div class="stat-l">Anos de atuação</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n">50</div>
+        <div class="stat-l">Estados com representação</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-in">
+    <div class="ti"><span class="ti-dot"></span>Orlando, Florida</div>
+    <div class="ti"><span class="ti-dot"></span>Representação em 50 estados</div>
+    <div class="ti"><span class="ti-dot"></span>Atendimento em Português</div>
+    <div class="ti"><span class="ti-dot"></span>Sigilo absoluto garantido</div>
+    <div class="ti"><span class="ti-dot"></span>Emergência 24h</div>
+    <div class="ti"><span class="ti-dot"></span>contato@govisacorp.com</div>
+  </div>
+</div>
+
+<!-- BRANDS -->
+<section class="brands">
+  <div class="brands-in">
+    <div class="brands-head">
+      <h3>Grupo Go Visa</h3>
+      <p>Um ecossistema completo de empresas dedicadas à proteção e regularização de imigrantes em todo o território americano.</p>
+    </div>
+    <div class="brands-row">
+      <div class="brand-item rv">
+        <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/q_auto/f_auto/v1775129985/Prancheta_2_c%C3%B3pia_4_1_te9fux.png" alt="Go Visa Law Firm">
+      </div>
+      <div class="brand-item rv">
+        <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129984/Prancheta_1_c%C3%B3pia_8_zcjhio.png" alt="Go Visa Brasil">
+      </div>
+      <div class="brand-item rv">
+        <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129983/Prancheta_2_c%C3%B3pia_5_kwjguc.png" alt="Go Visa Courses">
+      </div>
+      <div class="brand-item rv">
+        <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129987/Prancheta_2_c%C3%B3pia_5_1_tpkaiy.png" alt="Go Visa Foundation">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="eyebrow">Mecanismos de proteção</div>
+    <h2 class="h2">Sua defesa legal, <span class="light">em todas as frentes.</span></h2>
+    <div class="svc-grid">
+      <div class="svc-card rv">
+        <div class="svc-n">01 — Visto T</div>
+        <h3>Exploração Laboral</h3>
+        <span class="svc-tag">Para vítimas de tráfico humano</span>
+        <p>Para quem foi enganado com falsas promessas de trabalho, vive sob coerção ou condições abusivas. A lei reconhece a sua vulnerabilidade e oferece proteção jurídica real.</p>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-n">02 — Visto U</div>
+        <h3>Vítimas de Crimes</h3>
+        <span class="svc-tag">Colaboração com autoridades</span>
+        <p>Proteção para quem sofreu crimes qualificados em solo americano e colaborou com as autoridades. Seu testemunho tem valor jurídico e pode garantir sua permanência.</p>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-n">03 — VAWA</div>
+        <h3>Proteção Familiar</h3>
+        <span class="svc-tag">Independência do agressor</span>
+        <p>Visto destinado a vítimas de abusos cometidos por cônjuges, pais ou filhos cidadãos ou residentes. Você não precisa do seu agressor para regularizar sua situação.</p>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-n">04 — Defesa em Audiência</div>
+        <h3>Intervenção Estratégica</h3>
+        <span class="svc-tag">Cancelamento de deportação</span>
+        <p>Intervenção estratégica para cancelamento de deportação e pedidos de liberdade condicional. Quando o sistema pressiona, nós respondemos com a lei na mão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section class="section eco" id="ecossistema">
+  <div class="wrap">
+    <div class="eyebrow">Ecossistema</div>
+    <h2 class="h2">Um grupo, <span class="light">três frentes de defesa.</span></h2>
+    <div class="eco-grid">
+      <div class="eco-card rv">
+        <div class="eco-n">01</div>
+        <h3>Go Visa Law Firm</h3>
+        <p>Defesa técnica e representação em audiências de imigração em todo o país, liderada por Jeffrey Weingrad, Esq. Processos conduzidos com máxima precisão legal.</p>
+        <span class="eco-tag">Representação jurídica</span>
+      </div>
+      <div class="eco-card rv">
+        <div class="eco-n">02</div>
+        <h3>Go Visa Corp</h3>
+        <p>Inteligência jurídica para casos de alta complexidade, focada em proteção humanitária e análise de provas contra a exploração. Cada processo tratado com urgência.</p>
+        <span class="eco-tag">Proteção humanitária</span>
+      </div>
+      <div class="eco-card rv">
+        <div class="eco-n">03</div>
+        <h3>Go Visa Courses</h3>
+        <p>A maior autoridade na formação de paralegais do mercado americano. A empresa que mais treinou a elite técnica que sustenta as operações de imigração nos EUA.</p>
+        <span class="eco-tag">Formação paralegal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote">
+  <div class="quote-in">
+    <blockquote class="quote-text">
+      "Cada caso que fechamos é uma família que <span>dorme sem medo.</span>"
+    </blockquote>
+    <div class="quote-stats">
+      <div class="qs">
+        <div class="qs-n">100%</div>
+        <div class="qs-l">Atendimento em Português</div>
+      </div>
+      <div class="qs">
+        <div class="qs-n">24h</div>
+        <div class="qs-l">Linha de emergência ativa</div>
+      </div>
+      <div class="qs">
+        <div class="qs-n">50</div>
+        <div class="qs-l">Estados com cobertura</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section" id="historia">
+  <div class="wrap">
+    <div style="margin-bottom:56px">
+      <div class="eyebrow">Nossa história</div>
+      <h2 class="h2">Fundada na dor, <span class="light">movida pelo legado.</span></h2>
+    </div>
+    <div class="story-grid">
+      <div class="story-text rv">
+        <p>Em 2023, Rodrigo estava exatamente onde muitos dos nossos clientes estão hoje — sozinho, sem respostas, dentro de um sistema que não foi feito para protegê-lo.</p>
+        <p>Nenhum advogado explicava o que estava acontecendo. Nenhuma carta chegava em português. E o tempo corria contra ele.</p>
+        <p>Foi nesse silêncio que ele decidiu: <strong>se o sistema não protege quem é vulnerável, alguém precisa dominar o sistema por eles.</strong></p>
+        <p>Hoje, a Go Visa é um <strong>ecossistema de defesa nacional</strong> que protege o sonho de gerações em todo o território americano. Cada atendimento guiado por ética, transparência e compromisso com a vida.</p>
+      </div>
+      <div class="story-aside rv">
+        <div class="aside-box">
+          <blockquote>"Se o sistema não protege quem é vulnerável, alguém precisa <span>dominar o sistema</span> por eles."</blockquote>
+          <div class="aside-items">
+            <div class="aside-item">Fundada por brasileiros em 2023</div>
+            <div class="aside-item">Representação em todos os 50 estados</div>
+            <div class="aside-item">Liderada por Jeffrey Weingrad, Esq.</div>
+            <div class="aside-item">Sigilo e sem julgamento garantidos</div>
+            <div class="aside-item">Atendimento 100% em Português</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CTA -->
+<div class="cta-wrap">
+  <div class="cta-box">
+    <div class="cta-l">
+      <h2>Sua segurança jurídica não pode <span>esperar.</span></h2>
+      <p>Análise de viabilidade feita por nosso time jurídico em minutos. Não deixe o tempo trabalhar contra você. Atendemos imigrantes em situação de vulnerabilidade em todo o território americano.</p>
+    </div>
+    <div class="cta-r">
+      <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de falar com um assessor jurídico." target="_blank" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Assessor Jurídico
+      </a>
+      <a href="https://api.whatsapp.com/send/?phone=14075308780&text=EMERGÊNCIA:" target="_blank" class="btn-emerg">
+        <span class="e-dot"></span>Foi preso? Emergência 24h
+      </a>
+      <p class="cta-note">contato@govisacorp.com · Orlando, FL</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-in">
+    <div class="footer-top">
+      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/q_auto/f_auto/v1775129986/Prancheta_2_c%C3%B3pia_6_n8j7mk.png" alt="Go Visa Corp">
+      <p>Fundada na dor, movida pelo legado. Protegendo imigrantes vulneráveis em todo o território americano com representação jurídica real desde 2023.</p>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Go Visa Corp. Todos os direitos reservados.</p>
+      <p>Este site não constitui aconselhamento jurídico individual.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://api.whatsapp.com/send/?phone=14075308780" target="_blank" class="wa-float">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const obs = new IntersectionObserver(e => {
+    e.forEach(el => { if(el.isIntersecting) el.target.classList.add('on'); });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
