@@ -7,136 +7,215 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
-  --red:#B80C0C; --red2:#D91010; --navy:#0D1F3C; --dark:#07132A;
-  --white:#FFFFFF; --off:#F4F2EE; --border:#E0DDD8; --gray:#6B7280; --black:#111111;
+  --red:#B80C0C; --red2:#D91010;
+  --navy:#0D1F3C; --dark:#07132A;
+  --white:#FFFFFF; --off:#F4F2EE;
+  --border:#E0DDD8; --gray:#6B7280;
 }
-html { scroll-behavior: smooth; }
-body { font-family:'Inter',sans-serif; background:var(--white); color:var(--black); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:var(--white); color:#111; -webkit-font-smoothing:antialiased; }
 
-.reveal { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(0.22,1,0.36,1), transform .7s cubic-bezier(0.22,1,0.36,1); }
-.reveal.on { opacity:1; transform:translateY(0); }
+/* REVEAL */
+.rv { opacity:0; transform:translateY(20px); transition:opacity .65s cubic-bezier(0.22,1,0.36,1), transform .65s cubic-bezier(0.22,1,0.36,1); }
+.rv.on { opacity:1; transform:translateY(0); }
 
 /* NAV */
-nav { position:sticky; top:0; z-index:100; background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 52px; }
-.nav-in { max-width:1280px; margin:0 auto; height:80px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; }
-.back-link { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.5); text-decoration:none; transition:color .2s; justify-self:start; }
+nav {
+  position:sticky; top:0; z-index:100;
+  background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.nav-in {
+  max-width:1200px; margin:0 auto; padding:0 24px;
+  height:72px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+}
+.back-link {
+  display:flex; align-items:center; gap:7px;
+  font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  color:rgba(255,255,255,0.45); text-decoration:none; transition:color .2s;
+}
 .back-link:hover { color:var(--white); }
 .back-link svg { transition:transform .2s; }
 .back-link:hover svg { transform:translateX(-3px); }
-.nav-logo { display:flex; align-items:center; justify-content:center; }
-.nav-logo img { height:56px; width:auto; }
-.nav-wa { display:flex; align-items:center; gap:8px; background:var(--red); color:var(--white); font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:12px 22px; text-decoration:none; transition:background .2s; white-space:nowrap; justify-self:end; }
+.nav-logo { display:flex; justify-content:center; }
+.nav-logo img { height:44px; width:auto; }
+.nav-wa {
+  justify-self:end;
+  display:flex; align-items:center; gap:7px;
+  background:var(--red); color:var(--white);
+  font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  padding:10px 18px; text-decoration:none; transition:background .2s;
+}
 .nav-wa:hover { background:var(--red2); }
 
 /* HERO */
-.hero { background:var(--dark); padding:80px 52px 96px; position:relative; overflow:hidden; }
-.hero::after { content:''; position:absolute; inset:0; background:repeating-linear-gradient(-55deg,transparent 0,transparent 60px,rgba(255,255,255,0.012) 60px,rgba(255,255,255,0.012) 62px); pointer-events:none; }
-.hero-glow { position:absolute; bottom:-60px; right:-60px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(184,12,12,0.12),transparent 65%); pointer-events:none; }
-.hero-in { max-width:1280px; margin:0 auto; position:relative; z-index:1; }
-.hero-tag { display:inline-flex; align-items:center; gap:10px; margin-bottom:24px; font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); }
-.hero-tag::before { content:''; width:20px; height:1px; background:var(--red); }
-.hero h1 { font-size:clamp(32px,5vw,64px); font-weight:800; color:var(--white); letter-spacing:-0.03em; line-height:1.0; margin-bottom:20px; }
+.hero {
+  background:var(--dark); padding:72px 24px 80px;
+  text-align:center; position:relative; overflow:hidden;
+}
+.hero::after {
+  content:''; position:absolute; inset:0;
+  background:repeating-linear-gradient(-55deg,transparent 0,transparent 60px,rgba(255,255,255,0.012) 60px,rgba(255,255,255,0.012) 62px);
+  pointer-events:none;
+}
+.hero-glow {
+  position:absolute; bottom:-80px; left:50%; transform:translateX(-50%);
+  width:600px; height:300px;
+  background:radial-gradient(ellipse,rgba(184,12,12,0.15),transparent 65%);
+  pointer-events:none;
+}
+.hero-in { max-width:680px; margin:0 auto; position:relative; z-index:1; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:10px; margin-bottom:20px;
+  font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--red);
+}
+.hero-eyebrow::before, .hero-eyebrow::after { content:''; width:16px; height:1px; background:var(--red); }
+.hero h1 {
+  font-size:clamp(28px, 5vw, 52px); font-weight:800; color:var(--white);
+  letter-spacing:-0.03em; line-height:1.05; margin-bottom:16px;
+}
 .hero h1 span { color:var(--red); }
-.hero-sub { font-size:16px; color:rgba(255,255,255,0.45); font-weight:300; line-height:1.75; max-width:600px; margin-bottom:48px; }
-.hero-stats { display:flex; gap:1px; background:rgba(255,255,255,0.08); max-width:560px; }
-.hstat { flex:1; background:rgba(255,255,255,0.04); padding:24px 28px; }
-.hstat-n { font-size:30px; font-weight:800; color:var(--white); letter-spacing:-0.03em; line-height:1; }
-.hstat-l { font-size:10px; color:rgba(255,255,255,0.35); letter-spacing:0.1em; text-transform:uppercase; margin-top:4px; font-weight:600; }
+.hero-sub {
+  font-size:15px; color:rgba(255,255,255,0.45); font-weight:300;
+  line-height:1.75; margin-bottom:40px;
+}
+.hero-stats {
+  display:flex; justify-content:center; gap:1px;
+  background:rgba(255,255,255,0.08); max-width:480px; margin:0 auto;
+}
+.hstat { flex:1; background:rgba(255,255,255,0.04); padding:20px 16px; }
+.hstat-n { font-size:26px; font-weight:800; color:var(--white); letter-spacing:-0.03em; }
+.hstat-l { font-size:9px; color:rgba(255,255,255,0.35); letter-spacing:0.1em; text-transform:uppercase; margin-top:3px; font-weight:600; }
 
-/* VISTOS */
-.vistos-sec { padding:0 52px 100px; }
-.vistos-wrap { max-width:1280px; margin:0 auto; }
-.sec-intro { padding:72px 0 56px; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; border-bottom:1px solid var(--border); margin-bottom:64px; flex-wrap:wrap; }
-.sec-intro h2 { font-size:clamp(24px,3vw,40px); font-weight:700; color:var(--navy); letter-spacing:-0.025em; line-height:1.1; }
-.sec-intro p { font-size:14px; color:var(--gray); line-height:1.7; max-width:400px; }
+/* INTRO */
+.intro-sec { padding:56px 24px 0; text-align:center; }
+.intro-sec h2 { font-size:clamp(22px,3vw,36px); font-weight:700; color:var(--navy); letter-spacing:-0.02em; margin-bottom:12px; }
+.intro-sec p { font-size:14px; color:var(--gray); line-height:1.75; max-width:520px; margin:0 auto; }
 
-.visto-card { display:grid; grid-template-columns:260px 1fr; border:1px solid var(--border); margin-bottom:2px; overflow:hidden; transition:box-shadow .3s; }
-.visto-card:hover { box-shadow:0 8px 40px rgba(0,0,0,0.08); position:relative; z-index:1; }
+/* VISTOS GRID */
+.vistos-grid {
+  max-width:1200px; margin:0 auto;
+  padding:48px 24px 80px;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:2px;
+}
 
-.vc-left { background:var(--navy); padding:52px 40px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; transition:background .3s; }
-.visto-card:hover .vc-left { background:var(--dark); }
-.vc-glow { position:absolute; bottom:-50px; right:-50px; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle,rgba(184,12,12,0.15),transparent 70%); pointer-events:none; transition:transform .5s; }
-.visto-card:hover .vc-glow { transform:scale(1.4); }
+/* VISTO CARD — novo design centrado */
+.vc {
+  background:var(--white); border:1px solid var(--border);
+  padding:48px 36px; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+  position:relative; overflow:hidden;
+  transition:background .3s, box-shadow .3s;
+}
+.vc:hover { background:var(--navy); box-shadow:0 12px 48px rgba(7,19,42,0.15); }
+.vc::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--red); transform:scaleX(0);
+  transition:transform .35s cubic-bezier(0.22,1,0.36,1); transform-origin:left;
+}
+.vc:hover::before { transform:scaleX(1); }
 
-.vc-icon { width:60px; height:60px; border-radius:10px; background:rgba(184,12,12,0.12); border:1px solid rgba(184,12,12,0.25); display:flex; align-items:center; justify-content:center; margin-bottom:28px; transition:background .3s; }
-.visto-card:hover .vc-icon { background:rgba(184,12,12,0.22); }
+/* Icon */
+.vc-icon {
+  width:56px; height:56px; border-radius:12px;
+  background:rgba(184,12,12,0.08); border:1px solid rgba(184,12,12,0.2);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .3s;
+}
+.vc:hover .vc-icon { background:rgba(184,12,12,0.2); border-color:rgba(184,12,12,0.4); }
 .vc-icon svg { color:var(--red); }
 
-.vc-num { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.2); margin-bottom:8px; }
-.vc-name { font-size:clamp(20px,2vw,28px); font-weight:800; color:var(--white); letter-spacing:-0.02em; line-height:1.05; margin-bottom:6px; }
-.vc-sub { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); }
-.vc-tags { display:flex; gap:5px; flex-wrap:wrap; margin-top:28px; }
-.vc-tag { font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.4); border:1px solid rgba(255,255,255,0.1); padding:3px 8px; transition:all .2s; }
-.visto-card:hover .vc-tag { color:rgba(255,255,255,0.65); border-color:rgba(255,255,255,0.18); }
+.vc-num { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gray); transition:color .3s; }
+.vc:hover .vc-num { color:rgba(255,255,255,0.25); }
 
-.vc-right { background:var(--white); padding:52px 48px; display:flex; flex-direction:column; gap:18px; transition:background .3s; }
-.visto-card:hover .vc-right { background:var(--off); }
-.vc-right p { font-size:14.5px; color:#374151; line-height:1.85; font-weight:300; }
-.vc-right p strong { color:var(--navy); font-weight:600; }
+.vc-name { font-size:clamp(18px,2vw,24px); font-weight:800; color:var(--navy); letter-spacing:-0.02em; transition:color .3s; }
+.vc:hover .vc-name { color:var(--white); }
 
-.vc-points { border:1px solid var(--border); }
-.vc-point { display:flex; align-items:flex-start; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border); font-size:13px; color:var(--gray); line-height:1.5; transition:background .2s; }
+.vc-sub { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); }
+
+.vc-divider { width:40px; height:2px; background:var(--border); transition:background .3s; }
+.vc:hover .vc-divider { background:rgba(255,255,255,0.1); }
+
+.vc-desc { font-size:14px; color:var(--gray); line-height:1.8; font-weight:300; transition:color .3s; }
+.vc:hover .vc-desc { color:rgba(255,255,255,0.5); }
+
+/* Points */
+.vc-points { width:100%; border:1px solid var(--border); margin-top:4px; transition:border-color .3s; }
+.vc:hover .vc-points { border-color:rgba(255,255,255,0.1); }
+.vc-point {
+  display:flex; align-items:flex-start; gap:10px;
+  padding:11px 14px; border-bottom:1px solid var(--border);
+  font-size:12.5px; color:var(--gray); line-height:1.5; text-align:left;
+  transition:background .2s, border-color .3s, color .3s;
+}
 .vc-point:last-child { border-bottom:none; }
-.vc-point:hover { background:rgba(184,12,12,0.03); }
-.vp-dot { width:5px; height:5px; background:var(--red); border-radius:50%; flex-shrink:0; margin-top:6px; }
-.vc-point b { color:var(--navy); font-weight:600; }
+.vc:hover .vc-point { border-color:rgba(255,255,255,0.07); color:rgba(255,255,255,0.45); }
+.vc:hover .vc-point:hover { background:rgba(255,255,255,0.03); }
+.vp-dot { width:5px; height:5px; background:var(--red); border-radius:50%; flex-shrink:0; margin-top:5px; }
+.vc-point b { color:var(--navy); font-weight:600; transition:color .3s; }
+.vc:hover .vc-point b { color:rgba(255,255,255,0.8); }
 
-.vc-btn { display:inline-flex; align-items:center; gap:8px; align-self:flex-start; background:var(--red); color:var(--white); font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:12px 22px; text-decoration:none; transition:background .2s, transform .15s; margin-top:4px; }
+/* Tags */
+.vc-tags { display:flex; gap:5px; flex-wrap:wrap; justify-content:center; }
+.vc-tag {
+  font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--gray); border:1px solid var(--border); padding:3px 9px;
+  transition:all .3s;
+}
+.vc:hover .vc-tag { color:rgba(255,255,255,0.4); border-color:rgba(255,255,255,0.1); }
+
+.vc-btn {
+  display:inline-flex; align-items:center; gap:7px; margin-top:8px;
+  background:var(--red); color:var(--white);
+  font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  padding:12px 22px; text-decoration:none; transition:background .2s, transform .15s;
+}
 .vc-btn:hover { background:var(--red2); transform:translateY(-1px); }
 .vc-btn.urgent { background:#7F1D1D; }
 .vc-btn.urgent:hover { background:#991B1B; }
 
 /* CTA */
-.cta-sec { background:var(--dark); padding:100px 52px; text-align:center; position:relative; overflow:hidden; }
-.cta-sec::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 100%,rgba(184,12,12,0.15),transparent 60%); }
-.cta-in { max-width:640px; margin:0 auto; position:relative; z-index:1; }
-.cta-in h2 { font-size:clamp(28px,4vw,48px); font-weight:800; color:var(--white); letter-spacing:-0.03em; line-height:1.1; margin-bottom:16px; }
+.cta-sec {
+  background:var(--dark); padding:80px 24px;
+  text-align:center; position:relative; overflow:hidden;
+}
+.cta-sec::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 100%,rgba(184,12,12,0.15),transparent 60%);
+}
+.cta-in { max-width:560px; margin:0 auto; position:relative; z-index:1; }
+.cta-in h2 { font-size:clamp(24px,4vw,40px); font-weight:800; color:var(--white); letter-spacing:-0.03em; line-height:1.1; margin-bottom:14px; }
 .cta-in h2 span { color:var(--red); }
-.cta-in p { font-size:15px; color:rgba(255,255,255,0.4); font-weight:300; line-height:1.75; margin-bottom:40px; }
-.cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-.btn-wa-lg { display:inline-flex; align-items:center; gap:10px; background:#25D366; color:#052e14; font-size:13px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:17px 36px; text-decoration:none; box-shadow:0 8px 32px rgba(37,211,102,0.3); transition:background .2s, transform .2s; }
-.btn-wa-lg:hover { background:#22c55e; transform:translateY(-2px); }
-.btn-ghost-lg { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); font-size:13px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; padding:17px 32px; text-decoration:none; transition:all .2s; }
-.btn-ghost-lg:hover { border-color:rgba(255,255,255,0.5); color:var(--white); }
+.cta-in p { font-size:14px; color:rgba(255,255,255,0.4); font-weight:300; line-height:1.75; margin-bottom:36px; }
+.cta-btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.btn-wa {
+  display:inline-flex; align-items:center; gap:9px;
+  background:#25D366; color:#052e14;
+  font-size:12px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase;
+  padding:15px 32px; text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,0.3);
+  transition:background .2s, transform .2s;
+}
+.btn-wa:hover { background:#22c55e; transform:translateY(-2px); }
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:7px;
+  border:1px solid rgba(255,255,255,0.18); color:rgba(255,255,255,0.6);
+  font-size:12px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase;
+  padding:15px 28px; text-decoration:none; transition:all .2s;
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,0.45); color:var(--white); }
 
-footer { background:var(--off); padding:24px 52px; border-top:1px solid var(--border); text-align:center; }
+footer { background:var(--off); padding:20px 24px; border-top:1px solid var(--border); text-align:center; }
 footer p { font-size:11px; color:#9CA3AF; }
 
-@media(max-width:900px) {
-  nav { padding:0 20px; }
-  .nav-in { height:68px; }
-  .nav-logo img { height:40px; }
+/* MOBILE */
+@media(max-width:680px) {
   .nav-wa { display:none; }
-
-  .hero { padding:48px 24px 64px; }
-  .hero-stats { flex-wrap:wrap; }
-  .hstat { min-width:45%; }
-
-  .vistos-sec { padding:0 20px 72px; }
-  .sec-intro { padding:48px 0 40px; flex-direction:column; gap:20px; }
-
-  /* Visto cards go single column on mobile */
-  .visto-card { grid-template-columns:1fr; }
-
-  /* Left panel becomes horizontal strip on mobile */
-  .vc-left { padding:32px 24px; flex-direction:row; align-items:flex-start; flex-wrap:wrap; gap:16px; }
-  .vc-left > div:first-child { flex:1; min-width:0; }
-  .vc-icon { width:48px; height:48px; margin-bottom:0; flex-shrink:0; }
-  .vc-name { font-size:22px; }
-  .vc-tags { margin-top:0; }
-
-  .vc-right { padding:28px 24px; gap:16px; }
-  .vc-right p { font-size:14px; }
-  .vc-points { }
-  .vc-point { padding:11px 14px; font-size:12px; }
-
-  .cta-sec { padding:64px 24px; }
-  .cta-btns { flex-direction:column; align-items:center; }
-  .btn-wa-lg, .btn-ghost-lg { width:100%; justify-content:center; }
-
-  footer { padding:20px 24px; }
+  .vistos-grid { grid-template-columns:1fr; padding:36px 24px 64px; }
+  .vc { padding:36px 24px; }
+  .cta-btns { flex-direction:column; align-items:stretch; }
+  .btn-wa, .btn-ghost { justify-content:center; }
 }
 </style>
 </head>
@@ -146,7 +225,7 @@ footer p { font-size:11px; color:#9CA3AF; }
 <nav>
   <div class="nav-in">
     <a href="index.html" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
       Voltar
     </a>
     <div class="nav-logo">
@@ -159,10 +238,10 @@ footer p { font-size:11px; color:#9CA3AF; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-in">
-    <div class="hero-tag">Go Visa Law Firm</div>
+  <div class="hero-in rv">
+    <div class="hero-eyebrow">Go Visa Law Firm</div>
     <h1>Vistos que trabalhamos<br>e <span>lutamos.</span></h1>
-    <p class="hero-sub">Proteção jurídica real para cada situação. Conheça os mecanismos que utilizamos para garantir seu futuro nos Estados Unidos — com defesa técnica séria e sem julgamento.</p>
+    <p class="hero-sub">Proteção jurídica real para cada situação — com defesa técnica séria e sem julgamento.</p>
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-n">7</div><div class="hstat-l">Tipos de proteção</div></div>
       <div class="hstat"><div class="hstat-n">50</div><div class="hstat-l">Estados cobertos</div></div>
@@ -171,265 +250,190 @@ footer p { font-size:11px; color:#9CA3AF; }
   </div>
 </section>
 
-<!-- VISTOS -->
-<section class="vistos-sec">
-  <div class="vistos-wrap">
-    <div class="sec-intro reveal">
-      <h2>Cada caso tem<br>um caminho legal.</h2>
-      <p>Não sabe qual visto se aplica à sua situação? Nossa equipe analisa seu caso de forma individualizada. O primeiro contato é gratuito e sem julgamento.</p>
-    </div>
+<!-- INTRO -->
+<div class="intro-sec rv">
+  <h2>Cada caso tem um caminho legal.</h2>
+  <p>Não sabe qual visto se aplica à sua situação? Nossa equipe analisa seu caso de forma individualizada. O primeiro contato é gratuito e sem julgamento.</p>
+</div>
 
-    <!-- 01 VISTO T -->
-    <div class="visto-card reveal">
-      <div class="vc-left">
-        <div class="vc-glow"></div>
-        <div>
-          <div class="vc-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="vc-num">01</div>
-          <div class="vc-name">Visto T</div>
-          <div class="vc-sub">Exploração e Tráfico</div>
-        </div>
-        <div class="vc-tags">
-          <span class="vc-tag">Trabalho forçado</span>
-          <span class="vc-tag">Coiote</span>
-          <span class="vc-tag">Green card</span>
-        </div>
-      </div>
-      <div class="vc-right">
-        <p>O Visto T é para pessoas que foram <strong>exploradas ou forçadas a trabalhar</strong>, muitas vezes com ameaças ou engano. Inclui situações de trabalho abusivo ou travessias de risco com coiote ou cai-cai.</p>
-        <p>Permite ficar legalmente no país, trabalhar e, em alguns casos, <strong>pedir o green card</strong>. É proteção para quem quer recomeçar com segurança.</p>
-        <div class="vc-points">
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Permanência legal</b> nos Estados Unidos</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Autorização de trabalho</b> durante o processo</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Caminho para o green card</b> em casos elegíveis</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Válido para travessias de risco com <b>coiote ou cai-cai</b></div></div>
-        </div>
-        <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber se me enquadro no Visto T." target="_blank" class="vc-btn">
-          Verificar meu caso
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
+<!-- GRID DE VISTOS -->
+<div class="vistos-grid">
 
-    <!-- 02 VISTO U -->
-    <div class="visto-card reveal">
-      <div class="vc-left">
-        <div class="vc-glow"></div>
-        <div>
-          <div class="vc-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-          </div>
-          <div class="vc-num">02</div>
-          <div class="vc-name">Visto U</div>
-          <div class="vc-sub">Vítimas de Crimes</div>
-        </div>
-        <div class="vc-tags">
-          <span class="vc-tag">Violência</span>
-          <span class="vc-tag">Colaboração</span>
-          <span class="vc-tag">Green card</span>
-        </div>
-      </div>
-      <div class="vc-right">
-        <p>O Visto U é para <strong>vítimas de crimes nos EUA</strong> que sofreram abuso, violência doméstica, agressão ou outros crimes. Requer disposição para colaborar com as autoridades no caso.</p>
-        <p>Permite <strong>trabalhar legalmente</strong> e pode levar ao green card. É uma oportunidade para quem passou por situação difícil e quer regularizar sua vida.</p>
-        <div class="vc-points">
-          <div class="vc-point"><span class="vp-dot"></span><div>Válido para <b>crimes qualificados</b> cometidos em solo americano</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Requer <b>colaboração com as autoridades</b> no caso</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Autorização de trabalho</b> durante o processo</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Green card</b> disponível após 3 anos</div></div>
-        </div>
-        <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber se me enquadro no Visto U." target="_blank" class="vc-btn">
-          Verificar meu caso
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+  <!-- 01 VISTO T -->
+  <div class="vc rv">
+    <div class="vc-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
     </div>
-
-    <!-- 03 VAWA -->
-    <div class="visto-card reveal">
-      <div class="vc-left">
-        <div class="vc-glow"></div>
-        <div>
-          <div class="vc-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-          </div>
-          <div class="vc-num">03</div>
-          <div class="vc-name">VAWA</div>
-          <div class="vc-sub">Proteção Familiar</div>
-        </div>
-        <div class="vc-tags">
-          <span class="vc-tag">Abuso físico</span>
-          <span class="vc-tag">Abuso emocional</span>
-          <span class="vc-tag">Confidencial</span>
-        </div>
-      </div>
-      <div class="vc-right">
-        <p>O VAWA é para pessoas que sofreram abuso de <strong>cônjuge ou familiar cidadão americano ou residente</strong>. Abuso físico ou emocional.</p>
-        <p>Você faz o processo <strong>sozinho, sem depender do agressor</strong>. Confidencial, pode levar ao green card e garante independência e segurança.</p>
-        <div class="vc-points">
-          <div class="vc-point"><span class="vp-dot"></span><div>Processo <b>100% confidencial</b> — agressor não é notificado</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Válido para <b>abuso físico e emocional</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Você age de forma <b>totalmente independente</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Caminho direto para o green card</b></div></div>
-        </div>
-        <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre o VAWA." target="_blank" class="vc-btn">
-          Verificar meu caso
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+    <div class="vc-num">01</div>
+    <div class="vc-name">Visto T</div>
+    <div class="vc-sub">Exploração e Tráfico</div>
+    <div class="vc-divider"></div>
+    <p class="vc-desc">Para quem foi <b>explorado ou forçado a trabalhar</b> com ameaças, engano, trabalho abusivo ou entrou pelo cai-cai e passou por situações de risco.</p>
+    <div class="vc-points">
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Permanência legal</b> nos EUA</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Autorização de trabalho</b> durante o processo</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Caminho para o green card</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div>Válido para travessias com <b>coiote ou cai-cai</b></div></div>
     </div>
-
-    <!-- 04 ASILO -->
-    <div class="visto-card reveal">
-      <div class="vc-left">
-        <div class="vc-glow"></div>
-        <div>
-          <div class="vc-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
-          </div>
-          <div class="vc-num">04</div>
-          <div class="vc-name">Asilo</div>
-          <div class="vc-sub">Proteção Internacional</div>
-        </div>
-        <div class="vc-tags">
-          <span class="vc-tag">Perseguição</span>
-          <span class="vc-tag">Risco de vida</span>
-          <span class="vc-tag">Residência</span>
-        </div>
-      </div>
-      <div class="vc-right">
-        <p>O asilo é para quem <strong>não pode voltar ao seu país por medo de perseguição ou risco de vida</strong> — por religião, opinião política ou por fazer parte de um grupo específico.</p>
-        <p>Quem consegue o asilo pode <strong>morar legalmente nos EUA, trabalhar e pedir o green card</strong>. É proteção para quem precisa de um recomeço seguro.</p>
-        <div class="vc-points">
-          <div class="vc-point"><span class="vp-dot"></span><div>Válido para <b>perseguição política, religiosa ou de grupo social</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Residência legal permanente</b> nos EUA</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Autorização de trabalho</b> após aprovação</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Green card</b> disponível após 1 ano de asilo aprovado</div></div>
-        </div>
-        <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber mais sobre o Asilo." target="_blank" class="vc-btn">
-          Verificar meu caso
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+    <div class="vc-tags">
+      <span class="vc-tag">Trabalho forçado</span>
+      <span class="vc-tag">Coiote</span>
+      <span class="vc-tag">Green card</span>
     </div>
-
-    <!-- 05 HUMANITÁRIOS -->
-    <div class="visto-card reveal">
-      <div class="vc-left">
-        <div class="vc-glow"></div>
-        <div>
-          <div class="vc-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <div class="vc-num">05</div>
-          <div class="vc-name">Vistos Humanitários</div>
-          <div class="vc-sub">Situações de risco</div>
-        </div>
-        <div class="vc-tags">
-          <span class="vc-tag">Análise individual</span>
-          <span class="vc-tag">Casos únicos</span>
-        </div>
-      </div>
-      <div class="vc-right">
-        <p>Os vistos humanitários são para pessoas em <strong>situações difíceis ou de risco que precisam de proteção nos EUA</strong>. Cada caso é analisado de forma individual.</p>
-        <p>Dependendo da situação, é possível ficar legalmente, trabalhar e buscar residência. <strong>É uma alternativa para quem não se encaixa em outros vistos.</strong></p>
-        <div class="vc-points">
-          <div class="vc-point"><span class="vp-dot"></span><div>Avaliação <b>personalizada</b> para cada situação</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Opção para quem <b>não se encaixa nos vistos tradicionais</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Possibilidade de <b>permanência legal e trabalho</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Caminho para <b>residência futura</b> conforme o caso</div></div>
-        </div>
-        <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber sobre vistos humanitários." target="_blank" class="vc-btn">
-          Verificar meu caso
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- 06 FAMÍLIA -->
-    <div class="visto-card reveal">
-      <div class="vc-left">
-        <div class="vc-glow"></div>
-        <div>
-          <div class="vc-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M8 22V16h8v6"/></svg>
-          </div>
-          <div class="vc-num">06</div>
-          <div class="vc-name">Vistos por Família</div>
-          <div class="vc-sub">Reunificação familiar</div>
-        </div>
-        <div class="vc-tags">
-          <span class="vc-tag">Cônjuge</span>
-          <span class="vc-tag">Filhos e pais</span>
-          <span class="vc-tag">Green card</span>
-        </div>
-      </div>
-      <div class="vc-right">
-        <p>Os vistos por família permitem que <strong>cidadãos americanos ou residentes ajudem familiares a se legalizarem nos EUA</strong> — cônjuges, filhos, pais e irmãos.</p>
-        <p>Um dos caminhos mais comuns para o green card, mas que <strong>exige atenção e documentação precisa</strong> para ser feito corretamente.</p>
-        <div class="vc-points">
-          <div class="vc-point"><span class="vp-dot"></span><div>Para <b>cônjuges, filhos, pais e irmãos</b> de cidadãos ou residentes</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Um dos caminhos mais comuns para o <b>green card</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Prazos e requisitos <b>específicos por categoria</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Requer <b>documentação precisa</b> para evitar atrasos</div></div>
-        </div>
-        <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de saber sobre vistos por família." target="_blank" class="vc-btn">
-          Verificar meu caso
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- 07 DEFESA -->
-    <div class="visto-card reveal">
-      <div class="vc-left">
-        <div class="vc-glow"></div>
-        <div>
-          <div class="vc-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <div class="vc-num">07</div>
-          <div class="vc-name">Defesa em Audiência</div>
-          <div class="vc-sub">Intervenção estratégica</div>
-        </div>
-        <div class="vc-tags">
-          <span class="vc-tag">Deportação</span>
-          <span class="vc-tag">Urgente</span>
-          <span class="vc-tag">24h</span>
-        </div>
-      </div>
-      <div class="vc-right">
-        <p>Para quem está <strong>enfrentando processo de imigração ou risco de deportação</strong>. Mesmo nessas situações existem formas de tentar permanecer nos EUA.</p>
-        <p>Com a estratégia certa é possível <strong>apresentar uma defesa e buscar solução legal</strong>. Não enfrente essa situação sozinho — cada hora conta.</p>
-        <div class="vc-points">
-          <div class="vc-point"><span class="vp-dot"></span><div>Atuamos em <b>ordens de deportação ativas</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Cancelamento de remoção</b> com defesa técnica especializada</div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div>Representação em audiências nos <b>50 estados</b></div></div>
-          <div class="vc-point"><span class="vp-dot"></span><div><b>Atendimento de emergência 24h</b> para casos urgentes</div></div>
-        </div>
-        <a href="https://api.whatsapp.com/send/?phone=14075308780&text=URGENTE: Estou com risco de deportação e preciso de ajuda urgente." target="_blank" class="vc-btn urgent">
-          Preciso de ajuda urgente
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, quero saber se me enquadro no Visto T." target="_blank" class="vc-btn">Verificar meu caso →</a>
   </div>
-</section>
 
-<!-- CTA FINAL -->
+  <!-- 02 VISTO U -->
+  <div class="vc rv">
+    <div class="vc-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    </div>
+    <div class="vc-num">02</div>
+    <div class="vc-name">Visto U</div>
+    <div class="vc-sub">Vítimas de Crimes</div>
+    <div class="vc-divider"></div>
+    <p class="vc-desc">Para vítimas de <b>crimes nos EUA</b> — violência doméstica, agressão ou outros crimes — que ajudaram ou estão dispostas a ajudar as autoridades.</p>
+    <div class="vc-points">
+      <div class="vc-point"><span class="vp-dot"></span><div>Válido para <b>crimes qualificados</b> em solo americano</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Autorização de trabalho</b> durante o processo</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Green card</b> disponível após 3 anos</div></div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">Violência</span>
+      <span class="vc-tag">Colaboração</span>
+      <span class="vc-tag">Green card</span>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, quero saber se me enquadro no Visto U." target="_blank" class="vc-btn">Verificar meu caso →</a>
+  </div>
+
+  <!-- 03 VAWA -->
+  <div class="vc rv">
+    <div class="vc-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    </div>
+    <div class="vc-num">03</div>
+    <div class="vc-name">VAWA</div>
+    <div class="vc-sub">Proteção Familiar</div>
+    <div class="vc-divider"></div>
+    <p class="vc-desc">Para vítimas de abuso de <b>cônjuge ou familiar cidadão americano ou residente</b>. Você faz o processo sozinho, sem depender do agressor.</p>
+    <div class="vc-points">
+      <div class="vc-point"><span class="vp-dot"></span><div>Processo <b>100% confidencial</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div>Válido para <b>abuso físico e emocional</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Caminho direto para o green card</b></div></div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">Abuso</span>
+      <span class="vc-tag">Confidencial</span>
+      <span class="vc-tag">Green card</span>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, quero saber mais sobre o VAWA." target="_blank" class="vc-btn">Verificar meu caso →</a>
+  </div>
+
+  <!-- 04 ASILO -->
+  <div class="vc rv">
+    <div class="vc-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+    </div>
+    <div class="vc-num">04</div>
+    <div class="vc-name">Asilo</div>
+    <div class="vc-sub">Proteção Internacional</div>
+    <div class="vc-divider"></div>
+    <p class="vc-desc">Para quem <b>não pode voltar ao seu país</b> por medo de perseguição por religião, política ou por fazer parte de um grupo específico.</p>
+    <div class="vc-points">
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Residência legal permanente</b> nos EUA</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Autorização de trabalho</b> após aprovação</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Green card</b> após 1 ano de asilo aprovado</div></div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">Perseguição</span>
+      <span class="vc-tag">Risco de vida</span>
+      <span class="vc-tag">Green card</span>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, quero saber mais sobre o Asilo." target="_blank" class="vc-btn">Verificar meu caso →</a>
+  </div>
+
+  <!-- 05 HUMANITÁRIOS -->
+  <div class="vc rv">
+    <div class="vc-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    </div>
+    <div class="vc-num">05</div>
+    <div class="vc-name">Vistos Humanitários</div>
+    <div class="vc-sub">Situações de risco</div>
+    <div class="vc-divider"></div>
+    <p class="vc-desc">Para pessoas em <b>situações difíceis ou de risco</b> que precisam de proteção nos EUA. Cada caso é analisado individualmente.</p>
+    <div class="vc-points">
+      <div class="vc-point"><span class="vp-dot"></span><div>Avaliação <b>personalizada</b> para cada situação</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div>Para quem <b>não se encaixa em outros vistos</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div>Possibilidade de <b>permanência legal e trabalho</b></div></div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">Análise individual</span>
+      <span class="vc-tag">Proteção especial</span>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, quero saber sobre vistos humanitários." target="_blank" class="vc-btn">Verificar meu caso →</a>
+  </div>
+
+  <!-- 06 FAMÍLIA -->
+  <div class="vc rv">
+    <div class="vc-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M8 22V16h8v6"/></svg>
+    </div>
+    <div class="vc-num">06</div>
+    <div class="vc-name">Vistos por Família</div>
+    <div class="vc-sub">Reunificação familiar</div>
+    <div class="vc-divider"></div>
+    <p class="vc-desc">Para <b>cidadãos ou residentes americanos</b> que querem ajudar cônjuges, filhos, pais ou irmãos a se legalizarem nos EUA.</p>
+    <div class="vc-points">
+      <div class="vc-point"><span class="vp-dot"></span><div>Para <b>cônjuges, filhos, pais e irmãos</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div>Um dos caminhos mais comuns para o <b>green card</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div>Requer <b>documentação precisa</b> para evitar atrasos</div></div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">Família</span>
+      <span class="vc-tag">Reunificação</span>
+      <span class="vc-tag">Green card</span>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, quero saber sobre vistos por família." target="_blank" class="vc-btn">Verificar meu caso →</a>
+  </div>
+
+  <!-- 07 DEFESA -->
+  <div class="vc rv" style="grid-column:1/-1;">
+    <div class="vc-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <div class="vc-num">07</div>
+    <div class="vc-name">Defesa em Audiência</div>
+    <div class="vc-sub">Intervenção estratégica · Urgente</div>
+    <div class="vc-divider"></div>
+    <p class="vc-desc" style="max-width:560px;">Para quem está <b>enfrentando processo de imigração ou risco de deportação</b>. Com a estratégia certa, é possível apresentar uma defesa e buscar solução legal. Não enfrente isso sozinho.</p>
+    <div class="vc-points" style="max-width:560px;width:100%;">
+      <div class="vc-point"><span class="vp-dot"></span><div>Atuamos em <b>ordens de deportação ativas</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Cancelamento de remoção</b> com defesa técnica</div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div>Representação em audiências nos <b>50 estados</b></div></div>
+      <div class="vc-point"><span class="vp-dot"></span><div><b>Emergência 24h</b> para casos urgentes</div></div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">Deportação</span>
+      <span class="vc-tag">Urgente</span>
+      <span class="vc-tag">24h</span>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=14075308780&text=URGENTE: Estou com risco de deportação." target="_blank" class="vc-btn urgent">Preciso de ajuda urgente →</a>
+  </div>
+
+</div>
+
+<!-- CTA -->
 <section class="cta-sec">
-  <div class="cta-in reveal">
+  <div class="cta-in rv">
     <h2>Não sabe por onde<br><span>começar?</span></h2>
     <p>Nossa equipe analisa sua situação sem julgamento e identifica o melhor caminho jurídico disponível. O primeiro contato é gratuito.</p>
     <div class="cta-btns">
-      <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de entender qual proteção se aplica ao meu caso." target="_blank" class="btn-wa-lg">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a href="https://api.whatsapp.com/send/?phone=14075308780&text=Olá, gostaria de entender qual proteção se aplica ao meu caso." target="_blank" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar com nossa equipe
       </a>
-      <a href="index.html" class="btn-ghost-lg">← Voltar ao site</a>
+      <a href="index.html" class="btn-ghost">← Voltar ao site</a>
     </div>
   </div>
 </section>
@@ -440,10 +444,10 @@ footer p { font-size:11px; color:#9CA3AF; }
 
 <script>
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => { if (e.isIntersecting) e.target.classList.add('on'); });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 3) * 0.1 + 's';
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold:0.07, rootMargin:'0px 0px -32px 0px' });
+  document.querySelectorAll('.rv').forEach((el,i) => {
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
     obs.observe(el);
   });
 </script>
