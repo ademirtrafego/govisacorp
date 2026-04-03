@@ -110,8 +110,8 @@ nav.solid {
 .three-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 
 /* ── 2. HISTÓRIA DA GO VISA ── */
-.historia { background: var(--off); }
-.hist-text { max-width: 760px; }
+.historia { background: var(--off); display: flex; justify-content: center; }
+.hist-text { max-width: 760px; margin: 0 auto; text-align: center; }
 .hist-text h2 {
   font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--red);
   letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 28px;
@@ -139,10 +139,10 @@ nav.solid {
 }
 
 /* ── 3. GO VISA LAW FIRM ── */
-.lawfirm { background: var(--dark); }
+.lawfirm { background: var(--dark); display: flex; justify-content: center; }
 .lf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.lf-left { max-width: 680px; }
-.lf-left .sec-label { color: rgba(255,255,255,0.35); }
+.lf-left { max-width: 680px; text-align: center; }
+.lf-left .sec-label { color: rgba(255,255,255,0.35); justify-content: center; }
 .lf-left .sec-label::before { background: var(--red); }
 .lf-title {
   font-size: clamp(28px, 3.5vw, 46px); font-weight: 700; color: var(--white);
@@ -160,8 +160,7 @@ nav.solid {
   font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
   padding: 14px 28px; text-decoration: none; transition: background .2s, transform .15s;
 }
-.lf-btn:hover { background: var(--red2); transform: translateY(-1px); }
-.lf-right {
+.lf-btn:hover { background: var(--red2); transform: translateY(-1px); }.lf-right {
   background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
   border-top: 3px solid var(--red); padding: 52px;
   position: relative; overflow: hidden;
@@ -186,14 +185,15 @@ nav.solid {
 .lf-feat strong { color: rgba(255,255,255,0.85); font-weight: 600; }
 
 /* ── 4. JEFFREY ── */
-.jeffrey { background: var(--white); }
-.jeff-grid { display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: center; }
+.jeffrey { background: var(--dark); }
+.jeff-grid { display: grid; grid-template-columns: 300px 1fr; gap: 80px; align-items: center; max-width: 900px; margin: 0 auto; }
 .jeff-photo { width: 100%; height: 460px; object-fit: cover; object-position: top; display: block; }
 .jeff-placeholder {
   width: 100%; height: 460px; background: #d1ccc4;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 12px; font-size: 12px; color: rgba(0,0,0,0.3); letter-spacing: 0.1em; text-transform: uppercase;
 }
+.jeff-right { text-align: center; }
 .jeff-right h2 {
   font-size: clamp(24px, 3vw, 38px); font-weight: 700; color: var(--navy);
   letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px;
@@ -208,11 +208,13 @@ nav.solid {
   letter-spacing: 0.03em; line-height: 1.5;
 }
 .jeff-badge strong { font-weight: 700; }
+.jeff-badge { margin: 0 auto 28px; }
+.jeff-lawfirm { display: flex; justify-content: center; }
 .jeff-lawfirm img { height: 40px; width: auto; display: block; }
 
 /* ── 5. VISTOS ── */
 .vistos { background: var(--off); }
-.vistos-intro { max-width: 640px; margin-bottom: 56px; }
+.vistos-intro { max-width: 640px; margin: 0 auto 56px; text-align: center; }
 .vistos-intro p { font-size: 15px; color: var(--gray); line-height: 1.8; font-weight: 300; margin-top: 16px; }
 .vistos-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -381,34 +383,42 @@ footer { background: var(--off); padding: 64px 52px 40px; }
 
 <!-- ══ 3. GO VISA LAW FIRM ══ -->
 <section class="sec lawfirm" id="lawfirm">
-  <div class="wrap">
-    <div class="lf-left">
-      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129984/Prancheta_1_c%C3%B3pia_8_zcjhio.png" alt="Go Visa Law Firm" style="height:120px;width:auto;margin-bottom:28px;display:block;">
-      <p>Defesa técnica e representação em audiências de imigração em todo o território americano, liderada por <strong>Jeffrey Weingrad,</strong> profissional licenciado com atuação em todo Estados Unidos.</p>
-      <p>Cada processo conduzido com máxima precisão jurídica, do primeiro contato até a aprovação final. Nossa estrutura legal garante que nenhum detalhe seja negligenciado.</p>
-      <a href="vistos.html" target="_blank" class="lf-btn">Conhecer a Law Firm →</a>
-    </div>
+  <div style="max-width:680px;margin:0 auto;text-align:center;">
+    <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129984/Prancheta_1_c%C3%B3pia_8_zcjhio.png" alt="Go Visa Law Firm" style="height:200px;width:auto;display:block;margin:0 auto 32px;">
+    <p style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.85;font-weight:300;margin-bottom:14px;">Defesa técnica e representação em audiências de imigração em todo o território americano, liderada por <strong style="color:var(--white);font-weight:600;">Jeffrey Weingrad</strong>, profissional licenciado com atuação em todo os Estados Unidos.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.85;font-weight:300;margin-bottom:0;">Cada processo conduzido com máxima precisão jurídica, do primeiro contato até a aprovação final. Nossa estrutura legal garante que nenhum detalhe seja negligenciado.</p>
   </div>
 </section>
 
 <!-- ══ 4. JEFFREY WEINGRAD ══ -->
 <section class="sec jeffrey" id="jeffrey">
-  <div class="wrap">
-    <div class="jeff-grid">
-      <div>
-        <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775156883/Jeffrey_Weingrad.JPG_vhwzoy.jpg" alt="Jeffrey Weingrad" class="jeff-photo">
-      </div>
-      <div class="jeff-right">
-        <h2>Jeffrey Weingrad:<br>Nosso licenciado nos EUA</h2>
-        <p>Com uma trajetória marcada pela defesa intransigente e sucesso jurídico, Mr. Jeffrey oferece a segurança técnica e a representação de excelência que o seu futuro imigratório exige.</p>
-        <div class="jeff-badge">
-          <strong>Esq. Licenciado</strong> &nbsp;·&nbsp; Bar #5794276 &nbsp;·&nbsp; TX (Bar #24145286) e NY
-        </div>
-        <div class="jeff-lawfirm">
-          <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775129984/Prancheta_1_c%C3%B3pia_8_zcjhio.png" alt="Go Visa Law Firm">
-        </div>
-      </div>
+  <div style="max-width:640px;margin:0 auto;text-align:center;">
+    <div style="position:relative;width:300px;margin:0 auto 36px;display:flex;align-items:center;justify-content:center;">
+      <!-- Anel externo pulsante -->
+      <div style="position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(184,12,12,0.12);top:50%;left:50%;transform:translate(-50%,-50%);animation:jeffRing 3s ease-in-out infinite;"></div>
+      <!-- Anel médio pulsante -->
+      <div style="position:absolute;width:250px;height:250px;border-radius:50%;border:1px solid rgba(184,12,12,0.22);top:50%;left:50%;transform:translate(-50%,-50%);animation:jeffRing 3s ease-in-out infinite 0.8s;"></div>
+      <!-- Anel interno sólido -->
+      <div style="position:absolute;width:200px;height:200px;border-radius:50%;border:1.5px solid rgba(184,12,12,0.35);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+      <!-- Glow central vermelho -->
+      <div style="position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(184,12,12,0.2),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+      <!-- Glow azul externo -->
+      <div style="position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(13,31,60,0.6),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+      <!-- Foto -->
+      <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1775249082/primodamarca_6_engryw.png" alt="Jeffrey Weingrad" style="width:280px;height:340px;object-fit:contain;display:block;position:relative;z-index:2;">
     </div>
+    <style>
+      @keyframes jeffRing {
+        0%,100% { opacity:0.5; transform:translate(-50%,-50%) scale(1); }
+        50% { opacity:1; transform:translate(-50%,-50%) scale(1.05); }
+      }
+    </style>
+    <h2 style="font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--white);letter-spacing:-0.02em;line-height:1.15;margin-bottom:16px;">Jeffrey Weingrad:<br>Nosso Advogado licenciado nos EUA</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.85;font-weight:300;margin-bottom:24px;">Com uma trajetória marcada pela defesa intransigente e sucesso jurídico, Mr. Jeffrey oferece a segurança técnica e a representação de excelência que o seu futuro imigratório exige.</p>
+    <div class="jeff-badge" style="margin:0 auto 32px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);">
+      <strong style="color:var(--white);">Esq. Licenciado</strong> &nbsp;·&nbsp; Bar #5794276 &nbsp;·&nbsp; TX (Bar #24145286) e NY
+    </div>
+    <a href="vistos.html" target="_blank" class="lf-btn">Conhecer a Law Firm →</a>
   </div>
 </section>
 
@@ -476,7 +486,7 @@ footer { background: var(--off); padding: 64px 52px 40px; }
       <a href="https://instagram.com/govisacorp" target="_blank" class="soc">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="https://youtube.com/@govisacorp" target="_blank" class="soc">
+      <a href="https://youtube.com/@govisacorp?si=gFAzAOLSBAXFYDSH" target="_blank" class="soc">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="currentColor" stroke="none"/></svg>
       </a>
       <a href="https://linkedin.com/company/govisacorp" target="_blank" class="soc">
@@ -490,7 +500,7 @@ footer { background: var(--off); padding: 64px 52px 40px; }
       </div>
       <div class="footer-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bddad2cbd4cedcded2cfcdfdded2d3c9dcc9d293ded2d0">[email&#160;protected]</a>
+        <a href="mailto:contato@govisacorp.com" style="color:var(--gray);text-decoration:none;">contato@govisacorp.com</a>
       </div>
       <div class="footer-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
